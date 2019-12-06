@@ -24,6 +24,8 @@ namespace PBJProject.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDistributedMemoryCache();
+            services.AddSession(x => x.IdleTimeout = TimeSpan.FromSeconds(60));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +42,10 @@ namespace PBJProject.Client
                 app.UseHsts();
             }
             //app.UseHttpsRedirection();
+
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 
