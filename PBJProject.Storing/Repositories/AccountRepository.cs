@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PBJProject.Storing.Repositories
 {
-  public class AccountRepository : IRepository<Account>
+  public class AccountRepository : IAccountRepository
   {
       private List<Account> _accountsRepository;
       
