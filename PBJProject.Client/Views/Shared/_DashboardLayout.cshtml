@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,10 +8,15 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-         @Html.Partial("_HeaderNavBar")
+    <header class="row">
+      <nav class="col-md-3">
+       @Html.Partial("_LeftPanelNavBar")
+      </nav>
+      <nav class="col-md-9">
+       @Html.Partial("_RightPanelNavBar")
+      </nav>
     </header>
-    <div class="container">
+    <div class="container-fuild">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -30,3 +35,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
