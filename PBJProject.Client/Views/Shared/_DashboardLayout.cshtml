@@ -4,24 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Familiar</title>
+    <script src="https://kit.fontawesome.com/9c9a98a47a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/PBJ.css" />
 </head>
 <body>
-    <header class="row">
-      <nav class="col-md-3">
-       @Html.Partial("_LeftPanelNavBar")
-      </nav>
-      <nav class="col-md-9">
-       @Html.Partial("_RightPanelNavBar")
-      </nav>
-    </header>
-    <div class="container-fuild">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
+    
+    
+    
+     @RenderBody()
+   
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2019 - Familiar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -32,6 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/sidebar.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
