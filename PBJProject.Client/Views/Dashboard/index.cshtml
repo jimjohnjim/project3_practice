@@ -3,10 +3,83 @@
     Layout="~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<main class="container-fluid">
-<div class="row">
-<section class="col-md-3" style="background-color:red; height:300px"></section>
-<section class="col-md-6" style="background-color:black"></section>
-<section class="col-md-3" style="background-color:blue"></section>
+<div class="wrapper">
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Familiar Sidebar</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Your Profile</p>
+            <li class="active">
+                 <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span style="font-size: 1em; color: Tomato;">
+                            <i class="fa fa-camera"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-dice"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul> 
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Home 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                 </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="content">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+            </div>
+        </nav>
+        <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">With textarea</span>
+        </div>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+        </div>
+    </div>
 </div>
-</main>
