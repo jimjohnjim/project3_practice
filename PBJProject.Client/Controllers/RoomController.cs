@@ -7,10 +7,8 @@ namespace PBJProject.Client.Controllers
 {
   public class RoomController : Controller
   {
-    public ActionResult Index(string room)
+    public ActionResult Index()
     {
-      System.Console.WriteLine(room);
-      HttpContext.Session.SetString("room",room);
       if(HttpContext.Session.GetString("name") == null)
       {
         return Redirect("/");
