@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using PBJProject.Domain.Models;
+using PBJProject.Storing.Adapters;
 
 namespace PBJProject.Storing.Repositories
 {
-  public class CharacterRepository : IRepository<Character>
+  public class CharacterRepository : ICharacterRepository
   {
      private List<Character> _characterRepository;
+     private static readonly JSONAdapter _jsonAdapter = new JSONAdapter();
 
      public List<Character> CharacterLibrary
      {
@@ -37,9 +39,18 @@ namespace PBJProject.Storing.Repositories
 
         _characterRepository.Add(character1);
      }
-     public void Create(Character character)
+     public void Create(Character character, string path)
      {
+        _jsonAdapter.Create(character, path);
         _characterRepository.Add(character);
+     }
+
+     public void LoadCharacters(string path)
+     {
+        List<Character> charactersList = new List<Character>();
+        charactersList = _jsonAdapter.Load(path);
+        _characterRepository.Clear();
+        _characterRepository.AddRange(charactersList);
      }
   }
 }
