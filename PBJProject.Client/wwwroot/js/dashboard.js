@@ -1,5 +1,5 @@
-let field = document.getElementById("room");
-
-field.addEventListener("click",function(){
-  sessionStorage.setItem('room',field.value);
-});
+document.getElementsByName("room").forEach(item => {
+  item.addEventListener("click",function(){
+    sessionStorage.setItem('room',item.value)
+  })
+})
