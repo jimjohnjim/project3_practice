@@ -7,26 +7,108 @@
     <script src="https://kit.fontawesome.com/9c9a98a47a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/PBJ.css" />
+    <link rel="stylesheet" href="~/css/dashboard.css" />
 </head>
 <body>
+    
+    <div class="wrapper">
 
-    
-    
-    
-     @RenderBody()
-   
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - Familiar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!-- Sidebar Navbar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Familiar Sidebar</h3>
         </div>
-    </footer>
+
+        <ul class="list-unstyled components">
+            <p>Your Profile</p>
+            <li class="active">
+                 <ul class="nav" style="font-size:1.5em; justify-content: space-evenly;">
+                      <li class="nav-item">
+                         <a class="nav-link" href="#">
+                               <i class="far fa-comment-alt fa-fw"></i>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                         <a class="nav-link" asp-controller="Character" asp-action="Index">
+                                <i class="far fa-address-book fa-fw"></i> 
+                        </a>
+                    </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">
+                                <i class="fas fa-cog fa-fw"></i> 
+                        </a>
+                    </li>
+                </ul> 
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Home 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                 </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <main id="content">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light dashnav">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+            </div>
+        </nav>
+        <section class="row">
+        <article class="col-md-9">
+             @RenderBody()
+        </article>
+        <article class="col-md-3 chatlog">
+
+        </article>
+        <footer class="input-group chatbar">
+        <div class="input-group-prepend">
+            <span class="input-group-text">With textarea</span>
+        </div>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+        </footer>
+        </section>
+    </main>
+
+</div>
+
+@using (Html.BeginForm("index","room")){
+  <input type="submit" id="room" value="Go to Chat">
+}
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/sidebar.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

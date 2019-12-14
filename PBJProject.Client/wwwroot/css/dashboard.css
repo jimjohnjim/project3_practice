@@ -1,14 +1,28 @@
+.dashnav{
+  position: sticky;
+}
+.chatlog{
+  border-left-color: darkslategray;
+  border-left-style: solid;
+  border-left-width: medium;
+  position: sticky;
+  height: 100vh;
+}
+.chatbar{
+  max-width: 400px;
+  position: absolute;
+  top: 500px;
+  z-index: 10;
+  overflow-y: auto;
+
+}
 .wrapper {
   display: flex;
   width: 100%;
   align-items: stretch;
+
 }
 
-
-#sidebar {
-  min-width: 250px;
-  max-width: 250px;
-}
 
 #sidebar.active {
   margin-left: -250px;
@@ -18,6 +32,8 @@
   min-width: 250px;
   max-width: 250px;
   min-height: 100vh;
+  position: sticky;
+  overflow-y: auto;
 }
 
 a[data-toggle="collapse"] {
