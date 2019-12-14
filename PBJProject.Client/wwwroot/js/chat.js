@@ -5,6 +5,10 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 //Disable send button until connection is established
 document.getElementById("sendButton").disabled = true;
 
+connection.start().then(function(){
+  connection.invoke("JoinRoom",sessionStorage.getItem("name"), sessionStorage.getItem("room"));
+});
+
 connection.on("ReceiveMessage", function (user, message) {
     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     var encodedMsg = user + ": " + msg;
@@ -46,5 +50,3 @@ connection.on("UserJoined", function (user, users) {
   li.textContent = encodedMsg;
   document.getElementById("messagesList").appendChild(li);
 });
-
-connection.on("JoinRoom",sessionStorage.getItem("name"), "room1");
