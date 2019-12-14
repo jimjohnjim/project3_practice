@@ -6,16 +6,13 @@ using System.Threading;
 using System.Dynamic;
 using System;
 using System.Threading.Tasks;
+using System.Collections.Concurrent;
+using PBJProject.Client.Models;
 
 namespace PBJProject.Testing.Specs.PBJProject.Client.Hubs
 {
   public class ChatHubTest
   {
-    public interface IClientContract
-    {
-      void broadcastMessage(string name, string message);
-    }
-    [Fact]
     public async Task Test_SendMessage()
     {
       Mock<IHubCallerClients> mockClients = new Mock<IHubCallerClients>();
@@ -37,7 +34,6 @@ namespace PBJProject.Testing.Specs.PBJProject.Client.Hubs
       Mock<IHubCallerClients> mockClients = new Mock<IHubCallerClients>();
       Mock<IClientProxy> mockClientProxy = new Mock<IClientProxy>();
       var hub = new ChatHub();
-      var all = new Mock<IClientContract>();
       hub.Clients = mockClients.Object;
 
       await hub.OnConnectedAsync();
