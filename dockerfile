@@ -1,7 +1,8 @@
-FROM mcr.microsoft.com/dotnet/core/sdk AS build
+FROM mcr.microsoft.com/dotnet/core/sdk as build
 WORKDIR /aspnet
 COPY . .
-RUN dotnet publish -c Release -o out
+RUN dotnet build
+RUN dotnet publish --no-restore -c Release -o out 
 
 FROM mcr.microsoft.com/dotnet/core/aspnet
 WORKDIR /dist
