@@ -1,21 +1,42 @@
+.footerdash{
+display: flex;
+justify-content:center;
+font-size: 1.5em;
+}
+
+.footerdash .nav-item{
+  border-style: solid;
+  border-color: dimgrey;
+  border-radius: 100%;
+  margin-right: 6px;
+  margin-left: 6px;
+
+}
+
+.footer-chatbar{
+  display: inline-block;
+  position: fixed;
+  top: 525px;
+  z-index: 10;
+}
+
 .dashnav{
-  position: sticky;
+  position: fixed;
+  width:100%;
+  top: 0;
+  z-index: 10;
 }
 .chatlog{
   border-left-color: darkslategray;
   border-left-style: solid;
   border-left-width: medium;
-  position: sticky;
   height: 100vh;
 }
 .chatbar{
-  max-width: 400px;
-  position: absolute;
-  top: 500px;
-  z-index: 10;
-  overflow-y: auto;
+  width: 650px;
 
 }
+
 .wrapper {
   display: flex;
   width: 100%;
@@ -29,11 +50,11 @@
 }
 
 #sidebar {
+  position: fixed;
   min-width: 250px;
   max-width: 250px;
-  min-height: 100vh;
-  position: sticky;
-  overflow-y: auto;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 a[data-toggle="collapse"] {
