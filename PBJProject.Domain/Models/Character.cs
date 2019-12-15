@@ -18,5 +18,10 @@ namespace PBJProject.Domain.Models
 
     public virtual Account Account { get; set; }
     public Nullable<int> AccountId { get; set; }
+
+    public override string ToString()
+    {
+       return $"Name: {Name}";
+    }
   }
 }

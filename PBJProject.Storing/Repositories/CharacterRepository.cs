@@ -25,6 +25,7 @@ namespace PBJProject.Storing.Repositories
         {
            _characterRepository = new List<Character>();
         }
+        this.CharacterLibrary.Clear();
         this.CharacterLibrary.AddRange(_sqlAdapter.GetCharacters());
      }
 
