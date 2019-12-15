@@ -1,8 +1,10 @@
+using System;
+
 namespace PBJProject.Domain.Models
 {
   public class Character
   {
-    public int ID { get; set; }
+    public int CharacterId { get; set; }
     public int Level { get; set; }
     public string Name { get; set; }
     public string Race { get; set; }
@@ -13,8 +15,8 @@ namespace PBJProject.Domain.Models
     public int Charisma { get; set; }
     public int Constitution { get; set; }
     public string CharacterClass { get; set; }
-    public string FileName { get; set; }
 
     public virtual Account Account { get; set; }
+    public Nullable<int> AccountId { get; set; }
   }
 }

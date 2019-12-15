@@ -21,7 +21,7 @@ namespace PBJProject.Storing.Migrations
 
             modelBuilder.Entity("PBJProject.Domain.Models.Account", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("AccountId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
@@ -38,20 +38,17 @@ namespace PBJProject.Storing.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("text");
 
-                    b.Property<string>("Path")
-                        .HasColumnType("text");
-
                     b.Property<string>("UserName")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("AccountId");
 
                     b.ToTable("Account");
 
                     b.HasData(
                         new
                         {
-                            ID = 1,
+                            AccountId = 1,
                             Email = "joshua@familiar.com",
                             FirstName = "Joshua",
                             LastName = "Guillory",
@@ -60,7 +57,7 @@ namespace PBJProject.Storing.Migrations
                         },
                         new
                         {
-                            ID = 2,
+                            AccountId = 2,
                             Email = "phillip@familiar.com",
                             FirstName = "Phillip",
                             LastName = "Krawetz",
@@ -69,7 +66,7 @@ namespace PBJProject.Storing.Migrations
                         },
                         new
                         {
-                            ID = 3,
+                            AccountId = 3,
                             Email = "benjamin@familiar.com",
                             FirstName = "Benjamin",
                             LastName = "Clegg",
@@ -78,7 +75,7 @@ namespace PBJProject.Storing.Migrations
                         },
                         new
                         {
-                            ID = 4,
+                            AccountId = 4,
                             Email = "phillip@familiar.com",
                             FirstName = "Phillip",
                             LastName = "Krawetz",
@@ -89,12 +86,12 @@ namespace PBJProject.Storing.Migrations
 
             modelBuilder.Entity("PBJProject.Domain.Models.Character", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("CharacterId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
 
-                    b.Property<int?>("AccountID")
+                    b.Property<int?>("AccountId")
                         .HasColumnType("integer");
 
                     b.Property<string>("CharacterClass")
@@ -108,9 +105,6 @@ namespace PBJProject.Storing.Migrations
 
                     b.Property<int>("Dexterity")
                         .HasColumnType("integer");
-
-                    b.Property<string>("FileName")
-                        .HasColumnType("text");
 
                     b.Property<int>("Intelligence")
                         .HasColumnType("integer");
@@ -130,16 +124,17 @@ namespace PBJProject.Storing.Migrations
                     b.Property<int>("Wisdom")
                         .HasColumnType("integer");
 
-                    b.HasKey("ID");
+                    b.HasKey("CharacterId");
 
-                    b.HasIndex("AccountID");
+                    b.HasIndex("AccountId");
 
                     b.ToTable("Character");
 
                     b.HasData(
                         new
                         {
-                            ID = 1,
+                            CharacterId = 1,
+                            AccountId = 3,
                             CharacterClass = "Fighter",
                             Charisma = 10,
                             Constitution = 16,
@@ -150,6 +145,36 @@ namespace PBJProject.Storing.Migrations
                             Race = "Human",
                             Strength = 18,
                             Wisdom = 10
+                        },
+                        new
+                        {
+                            CharacterId = 2,
+                            AccountId = 2,
+                            CharacterClass = "Rogue",
+                            Charisma = 10,
+                            Constitution = 10,
+                            Dexterity = 10,
+                            Intelligence = 10,
+                            Level = 1,
+                            Name = "Silly",
+                            Race = "Human",
+                            Strength = 10,
+                            Wisdom = 10
+                        },
+                        new
+                        {
+                            CharacterId = 3,
+                            AccountId = 2,
+                            CharacterClass = "Bard",
+                            Charisma = 10,
+                            Constitution = 10,
+                            Dexterity = 10,
+                            Intelligence = 10,
+                            Level = 1,
+                            Name = "Testing",
+                            Race = "Human",
+                            Strength = 10,
+                            Wisdom = 10
                         });
                 });
 
@@ -157,7 +182,7 @@ namespace PBJProject.Storing.Migrations
                 {
                     b.HasOne("PBJProject.Domain.Models.Account", "Account")
                         .WithMany("Characters")
-                        .HasForeignKey("AccountID");
+                        .HasForeignKey("AccountId");
                 });
 #pragma warning restore 612, 618
         }
