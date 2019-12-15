@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using PBJProject.Domain.Models;
 
 namespace PBJProject.Storing.Adapters
@@ -10,6 +12,11 @@ namespace PBJProject.Storing.Adapters
       {
          _db.Character.Add(character);
          _db.SaveChanges();
+      }
+
+      public List<Character> GetCharacters()
+      {
+         return _db.Character.ToList();
       }
 
       public void PersistAccount(Account account)
