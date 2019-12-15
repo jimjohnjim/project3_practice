@@ -13,7 +13,6 @@ namespace PBJProject.Domain.Models
     public int Charisma { get; set; }
     public int Constitution { get; set; }
     public string CharacterClass { get; set; }
-    public int AccountID { get; set; }
     public string FileName { get; set; }
 
     public virtual Account Account { get; set; }
