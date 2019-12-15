@@ -7,18 +7,16 @@ namespace PBJProject.Storing.Parsers
    public class JSONParser
    {
       private const string jsonExtension = ".json";
-      public Character DeserializeJSON(string file)
+      
+      public Character DeserializeJSON(string characterBlob)
       {
          Character character = new Character();
-         character = JsonConvert.DeserializeObject<Character>(file);
-         return character;
+         return JsonConvert.DeserializeObject<Character>(characterBlob);
       }
 
-      public void SerializeJSON(Character character, string path)
+      public void SerializeJSON(Character character)
       {
          string jsonOutput = JsonConvert.SerializeObject(character);
-         path = path + "\\" + character.FileName + jsonExtension;
-         File.WriteAllText(path, jsonOutput);
       }
    }
 }

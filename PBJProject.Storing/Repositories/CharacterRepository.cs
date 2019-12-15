@@ -25,18 +25,11 @@ namespace PBJProject.Storing.Repositories
            _characterRepository = new List<Character>();
         }
      }
-     public void Create(Character character, string path)
-     {
-        _jsonAdapter.Create(character, path);
-        _characterRepository.Add(character);
-     }
 
-     public void LoadCharacters(string path)
+     public void Load(string characterBlob)
      {
-        List<Character> charactersList = new List<Character>();
-        charactersList = _jsonAdapter.Load(path);
-        _characterRepository.Clear();
-        _characterRepository.AddRange(charactersList);
+        Character character = _jsonAdapter.Load(characterBlob);
+        _characterRepository.Add(character);
      }
   }
 }
