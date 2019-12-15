@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light dashnav">
+    <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <span>Toggle Sidebar</span>
+        </button>
+        <button class="btn btn-outline-dark navbar-btn">Log Out</button>
+        @using (Html.BeginForm("index","room")){
+        <input type="submit" id="room" value="Go to Chat" class="btn btn-outline-dark navbar-btn">
+        }  
+    </div>
+</nav>
