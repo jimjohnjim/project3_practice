@@ -59,6 +59,7 @@ namespace PBJProject.Client
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapHub<ChatHub>("/chatHub");
+                endpoints.MapHub<FileHub>("/fileHub");
             });
         }
     }
