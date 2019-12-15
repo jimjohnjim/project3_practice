@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="~/css/dashboard.css" />
 </head>
 <body>
-    
     <div class="wrapper">
-
     <!-- Sidebar Navbar -->
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -41,15 +39,10 @@
                 </ul> 
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
+                   @foreach(var c in ViewBag.Characters)
+                   {
+                     <li><a href="#">@c.Name</a></li>
+                   }
                  </ul>
             </li>
             <li>
@@ -71,36 +64,47 @@
 
     <!-- Page Content -->
     <main id="content">
-         <nav class="navbar navbar-expand-lg navbar-light bg-light dashnav">
-            <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
-                    <span>Toggle Sidebar</span>
-                </button>
-            </div>
-        </nav>
+        @Html.Partial("_DashboardNavBar")
         <section class="row">
         <article class="col-md-9">
              @RenderBody()
+        
         </article>
         <article class="col-md-3 chatlog">
 
         </article>
-        <footer class="input-group chatbar">
-        <div class="input-group-prepend">
-            <span class="input-group-text">With textarea</span>
-        </div>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-        </footer>
         </section>
-    </main>
+        <footer class="footer-chatbar">
+            
+            <div class="input-group chatbar">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">With textarea</span>
+            </div>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
 
+            <ul class="nav footerdash">
+                      <li class="nav-item">
+                         <a class="nav-link">
+                              <i class="far fa-paper-plane fa-fw"></i>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                         <a class="nav-link">
+                                <i class="fas fa-dice fa-fw"></i>
+                        </a>
+                    </li>
+                      <li class="nav-item">
+                          <a class="nav-link">
+                                <i class="far fa-clone fa-fw"></i>
+                        </a>
+                    </li>
+                </ul> 
+            </div>
+        </footer>
+    </main>
 </div>
 
-@using (Html.BeginForm("index","room")){
-  <input type="submit" id="room" value="Go to Chat">
-}
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
