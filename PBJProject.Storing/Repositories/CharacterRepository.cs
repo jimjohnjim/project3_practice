@@ -8,6 +8,7 @@ namespace PBJProject.Storing.Repositories
   {
      private List<Character> _characterRepository;
      private static readonly JSONAdapter _jsonAdapter = new JSONAdapter();
+     private static readonly SQLAdapter _sqlAdapter = new SQLAdapter();
 
      public List<Character> CharacterLibrary
      {
@@ -24,12 +25,26 @@ namespace PBJProject.Storing.Repositories
         {
            _characterRepository = new List<Character>();
         }
+        this.CharacterLibrary.Clear();
+        this.CharacterLibrary.AddRange(_sqlAdapter.GetCharacters());
      }
 
      public void Load(string characterBlob)
      {
         Character character = _jsonAdapter.Load(characterBlob);
         _characterRepository.Add(character);
+        _sqlAdapter.PersistCharacter(character);
+     }
+
+     public void Create(Character character)
+     {
+        _characterRepository.Add(character);
+        _sqlAdapter.PersistCharacter(character);
+     }
+
+     public List<Character> GetCharactersByAccountId(int accountId)
+     {
+        return _sqlAdapter.GetCharactersByAccountId(accountId);
      }
   }
 }
