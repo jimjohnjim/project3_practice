@@ -1,0 +1,46 @@
+@model PBJProject.Domain.Models.Character
+
+
+<div class="col-md-6 text-center">
+     <h1 class="display-4">View Character</h1>
+</div>
+
+<div class="form-group">
+    <label for="Email">Character Name</label>
+    @Html.DisplayFor(m => m.Name)
+</div>
+<div class="form-group">
+    <label for="Password">CharacterClass</label>
+    @Html.DisplayFor(m => m.CharacterClass)
+</div>
+<div class="row">
+<div class="col-md-6">
+    <div class="form-group">
+        <label for="Password">Strength</label>
+        @Html.DisplayFor(m => m.Strength)
+    </div>
+    <div class="form-group">
+        <label for="Password">Intelligence</label>
+        @Html.DisplayFor(m => m.Intelligence)
+    </div>
+    <div class="form-group">
+        <label for="Password">Dexterity</label>
+        @Html.DisplayFor(m => m.Dexterity)
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="form-group">
+        <label for="Password">Wisdom</label>
+        @Html.DisplayFor(m => m.Wisdom)
+    </div>
+    <div class="form-group">
+        <label for="Password">Charisma</label>
+        @Html.DisplayFor(m => m.Charisma)
+    </div>
+    <div class="form-group">
+        <label for="Password">Constitution</label>
+        @Html.DisplayFor(m => m.Constitution)
+    </div>
+</div>
+</div>
+
