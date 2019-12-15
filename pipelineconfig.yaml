@@ -38,11 +38,12 @@ stages:
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
               /d:sonar.cs.opencover.reportsPaths=**/TestResults/*/coverage.opencover.xml \
+              /d:sonar.javascript.exclusions=**/PBJProject.Client/wwwroot/** \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /k:benjaminclegg \
               /o:benjaminclegg
               dotnet build PBJProject.sln
-              dotnet test PBJProject.sln --logger trx
+              dotnet test PBJProject.sln --logger trx /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat="cobertura,opencover"
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(sonar.token)
