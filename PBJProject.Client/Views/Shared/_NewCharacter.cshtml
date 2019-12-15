@@ -1,0 +1,44 @@
+@model PBJProject.Domain.Models.Character
+
+ @using (Html.BeginForm("index","login"))
+    {
+        <div class="form-group">
+            <label for="Email">Character Name</label>
+            @Html.TextBoxFor(m => m.Name, new{@class="form-control",@id="Email",@placeholder="Enter Your Email Address"})
+        </div>
+        <div class="form-group">
+            <label for="Password">CharacterClass</label>
+            @Html.TextBoxFor(m => m.CharacterClass, new{@class="form-control",@id="Email",@placeholder="Enter Your Password"})
+        </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Password">Strength</label>
+                @Html.TextBoxFor(m => m.Strength, new{@class="form-control",@id="Email",@placeholder="Enter Your Password"})
+            </div>
+            <div class="form-group">
+                <label for="Password">Intelligence</label>
+                @Html.TextBoxFor(m => m.Intelligence, new{@class="form-control",@id="Email",@placeholder="Enter Your Password"})
+            </div>
+            <div class="form-group">
+                <label for="Password">Dexterity</label>
+                @Html.TextBoxFor(m => m.Dexterity, new{@class="form-control",@id="Email",@placeholder="Enter Your Password"})
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Password">Wisdom</label>
+                @Html.TextBoxFor(m => m.Wisdom, new{@class="form-control",@id="Email",@placeholder="Enter Your Password"})
+            </div>
+            <div class="form-group">
+                <label for="Password">Charisma</label>
+                @Html.TextBoxFor(m => m.Charisma, new{@class="form-control",@id="Email",@placeholder="Enter Your Password"})
+            </div>
+            <div class="form-group">
+                <label for="Password">Constitution</label>
+                @Html.TextBoxFor(m => m.Constitution, new{@class="form-control",@id="Email",@placeholder="Enter Your Password"})
+            </div>
+        </div>
+    </div>
+        <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block">
+    }
