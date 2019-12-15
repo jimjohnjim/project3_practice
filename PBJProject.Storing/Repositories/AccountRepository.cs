@@ -32,5 +32,10 @@ namespace PBJProject.Storing.Repositories
          _accountsRepository.Add(account);
          _sqlAdapter.PersistAccount(account);
       }
+
+      public int GetAccountIdByAccountUserName(string userName)
+      {
+         return _sqlAdapter.GetAccountIdByAccountUserName(userName);
+      }
   }
 }

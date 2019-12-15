@@ -35,5 +35,16 @@ namespace PBJProject.Storing.Repositories
         _characterRepository.Add(character);
         _sqlAdapter.PersistCharacter(character);
      }
+
+     public void Create(Character character)
+     {
+        _characterRepository.Add(character);
+        _sqlAdapter.PersistCharacter(character);
+     }
+
+     public List<Character> GetCharactersByAccountId(int accountId)
+     {
+        return _sqlAdapter.GetCharactersByAccountId(accountId);
+     }
   }
 }

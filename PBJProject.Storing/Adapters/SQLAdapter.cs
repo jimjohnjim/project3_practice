@@ -19,6 +19,16 @@ namespace PBJProject.Storing.Adapters
          return _db.Character.ToList();
       }
 
+      public List<Character> GetCharactersByAccountId(int accountId)
+      {
+         return _db.Character.Where(x => x.AccountId == accountId).ToList();
+      }
+
+      public int GetAccountIdByAccountUserName(string userName)
+      {
+         return _db.Account.FirstOrDefault(x => x.UserName == userName).AccountId;
+      }
+
       public void PersistAccount(Account account)
       {
          _db.Account.Add(account);
