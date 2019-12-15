@@ -3,6 +3,9 @@
     Layout="~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<div class="col-md-6 text-center">
-     <h1 class="display-4">New Character</h1>
-</div>
+@Html.Partial("_NewCharacter")
+<footer class="border-top footer-content text-muted">
+    <div class="container">
+        &copy; 2019 - Familiar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
