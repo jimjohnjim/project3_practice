@@ -65,7 +65,7 @@ namespace PBJProject.Testing.Specs.PBJProject.Domain.Models
          sut.Values.AddRange(values);
 
          // assert
-         Assert.Equal(sut.Highest, 3);
+         Assert.Equal(sut.Highest, ThreeDice);
       }
 
       [Theory]
@@ -79,7 +79,7 @@ namespace PBJProject.Testing.Specs.PBJProject.Domain.Models
          sut.RemoveOneDieFromPool();
 
          // assert
-         Assert.Equal(sut.NumberOfDice, 2);
+         Assert.Equal(sut.NumberOfDice, TwoDice);
       }
 
       [Theory]
@@ -93,7 +93,7 @@ namespace PBJProject.Testing.Specs.PBJProject.Domain.Models
          sut.AddOneDieToPool();
 
          // assert
-         Assert.Equal(sut.NumberOfDice, 4);
+         Assert.Equal(sut.NumberOfDice, FourDice);
       }
    }
 }
