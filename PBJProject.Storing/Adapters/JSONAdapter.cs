@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 using PBJProject.Domain.Models;
 using PBJProject.Storing.Parsers;
+using PBJProject.Storing.Adapters;
 
 namespace PBJProject.Storing.Adapters
 {
@@ -11,31 +12,24 @@ namespace PBJProject.Storing.Adapters
    {
       private const string jsonExtension = ".json";
       private static readonly JSONParser _jsonParser = new JSONParser();
+      private static readonly JSONSchemas _jsonSchema = new JSONSchemas();
 
-      public void Create(Character character, string path)
-      {
-         _jsonParser.SerializeJSON(character, path);
-      }
+      // public Character Create(string characterBlob)
+      // {
+      //    return _jsonParser.SerializeJSON(characterBlob);
+      // }
 
-      public List<Character> Load(string path)
+      public Character Load(string characterBlob)
       {
          Character character = new Character();
-         List<Character> characterList = new List<Character>();
          string jsonString = "";
 
-         List<string> filesList = GetFilesAtPath(path);
-
-         foreach(var jsonFile in filesList)
+         if(ValidateJSON(characterBlob, _jsonSchema.SchemaDnD))
          {
-            jsonString = File.ReadAllText(jsonFile);
-            if(ValidateJSON(jsonString))
-            {
                character = _jsonParser.DeserializeJSON(jsonString);
-               characterList.Add(character);
-            }
+               return character;
          }
-
-         return characterList;
+         return null;
       }
 
       private List<string> GetFilesAtPath(string path)
@@ -58,29 +52,9 @@ namespace PBJProject.Storing.Adapters
          return filesList;
       }
 
-      private bool ValidateJSON(string jsonString)
+      private bool ValidateJSON(string jsonString, string schema)
       {
-         string characterSchemaString = @"{
-         'description': 'Character schema',
-         'type': 'object',
-         'properties':
-         {
-            'Name': { 'type': 'string' },
-            'Race': { 'type': 'string' },
-            'CharacterClass': { 'type': 'string'},
-            'Level': { 'type': 'integer' },
-            'Strength': { 'type': 'integer' },
-            'Intelligence': { 'type': 'integer' },
-            'Dexterity': { 'type': 'integer' },
-            'Wisdom': { 'type': 'integer' },
-            'Charisma': { 'type': 'integer' },
-            'Constitution': { 'type': 'integer' },
-            'FileName': { 'type': 'string' }
-            },
-            'additionalProperties': false
-         }";
-
-         JSchema characterSchema = JSchema.Parse(characterSchemaString);
+         JSchema characterSchema = JSchema.Parse(schema);
          JObject tempObject = JObject.Parse(jsonString);
          
          return tempObject.IsValid(characterSchema);

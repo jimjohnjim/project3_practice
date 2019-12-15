@@ -24,33 +24,12 @@ namespace PBJProject.Storing.Repositories
         {
            _characterRepository = new List<Character>();
         }
-
-        Character character1 = new Character();
-
-        character1.Level = 1;
-        character1.Name = "Dummy";
-        character1.Strength = 18;
-        character1.Intelligence = 8;
-        character1.Dexterity = 12;
-        character1.Wisdom = 10;
-        character1.Charisma = 10;
-        character1.Constitution = 16;
-        character1.CharacterClass = "Strongman";
-
-        _characterRepository.Add(character1);
      }
-     public void Create(Character character, string path)
+
+     public void Load(string characterBlob)
      {
-        _jsonAdapter.Create(character, path);
+        Character character = _jsonAdapter.Load(characterBlob);
         _characterRepository.Add(character);
-     }
-
-     public void LoadCharacters(string path)
-     {
-        List<Character> charactersList = new List<Character>();
-        charactersList = _jsonAdapter.Load(path);
-        _characterRepository.Clear();
-        _characterRepository.AddRange(charactersList);
      }
   }
 }
