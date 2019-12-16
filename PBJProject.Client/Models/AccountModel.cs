@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using PBJProject.Domain.Models;
+//using PBJProject.Domain.Models;
 
 namespace PBJProject.Client.Models
 {
@@ -11,6 +11,6 @@ namespace PBJProject.Client.Models
     public string LastName { get; set; }
     public string Password { get; set; }
     public string Email { get; set; }
-    public List<Character> MyCharacters { get; set; }
+    //public List<Character> MyCharacters { get; set; }
   }
 }

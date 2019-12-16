@@ -1,15 +1,17 @@
 using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json;
 using PBJProject.Client.Models;
-using PBJProject.Domain.Models;
-using PBJProject.Storing.Repositories;
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace PBJProject.Client.Hubs
 {
   public class ChatHub : Hub
   {
+    private static readonly HttpClient client = new HttpClient();
     private static readonly ConcurrentDictionary<string, int> numUsers = new ConcurrentDictionary<string, int>();
 
     private static readonly ConcurrentDictionary<string, User> Users = new ConcurrentDictionary<string, User>();
@@ -19,9 +21,18 @@ namespace PBJProject.Client.Hubs
       var caller = Users[Context.ConnectionId];
       if(message[0] == '/' && message[1] == 'r')
       {
-        var roll = new ChatParser().GetRoll(message);
-        var dice = new Dice(roll[0],roll[1]);
-        dice.Roll();
+
+        var a = await client.GetAsync("http://webapi/api/dice/3d20");
+        var b = a.Content;
+        var c = await b.ReadAsStringAsync();
+        Dice dice = null;
+        dice = JsonConvert.DeserializeObject<Dice>(c);
+
+        //System.Console.WriteLine(test.Values);
+        
+        //var roll = new ChatParser().GetRoll(message);
+        // var dice = new Dice(roll[0],roll[1]);
+        // dice.Roll();
         await Clients.Group(caller.group).SendAsync("DiceRoll",caller.name,dice.Values,dice.Sum,dice.Highest);
       }
       else{
@@ -49,12 +60,12 @@ namespace PBJProject.Client.Hubs
       Users.TryRemove(Context.ConnectionId, out caller);
     }
 
-    public Task LoadFile(string filecontents)
-    {
-      var repo = new CharacterRepository();
-      repo.Load(filecontents);
-      return null;
-    }
+    // public Task LoadFile(string filecontents)
+    // {
+    //   var repo = new CharacterRepository();
+    //   repo.Load(filecontents);
+    //   return null;
+    // }
 
     public async Task SwitchRoom()
     {
