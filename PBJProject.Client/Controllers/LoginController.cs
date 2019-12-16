@@ -20,9 +20,10 @@ namespace PBJProject.Client.Controllers
     {
        if(ModelState.IsValid)
        {
-          
-            HttpContext.Session.SetString("name", account.UserName);
-            return RedirectToAction("Index","Dashboard", account);
+          AccountModel actualAccount = new AccountModel();
+          actualAccount = _ar.GetAccountObjectbyUserName(account.UserName);
+          HttpContext.Session.SetString("name", account.UserName);
+          return RedirectToAction("Index","Dashboard", account);
        }
 
       ViewBag.LoginError = "Invalid Username and\\or Password";
