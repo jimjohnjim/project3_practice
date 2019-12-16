@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  webfrontend:
+    image: webfrontend:${TAG:-latest}
+    networks:
+      - familiar_network
+    environment:
+      - WebAPI=http://webapi
+    build:
+      context: .
+      dockerfile: dockerfile.mvc
+    ports:
+      - "5000:80"
+    depends_on: 
+      - webapi
+    
+  webapi:
+    image: webapi
+    networks:
+      - familiar_network
+    build:
+      context: .
+      dockerfile: dockerfile.api
+    depends_on: 
+      - db
+    ports:
+      - "5050:80"
+    expose:
+      - "5050"
+
+  db:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+
+
+networks:
+  familiar_network:
+    driver: bridge
