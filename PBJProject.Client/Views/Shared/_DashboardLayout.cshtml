@@ -24,10 +24,7 @@
             <section class="col-md-7">
                 <div class="main-content">
                     @RenderBody()
-                      @using (Html.BeginForm("index","room")){
-                        <input type="submit" name="room" value="RoomB">
-                        <input type="submit" name="room" value="RoomA">
-                    }
+    
                     <div id="page-wrapper">
                         <div>
                         Select a JSON file: 
@@ -39,15 +36,15 @@
             </section>
             <section class="col-md-3 sidebar-right-style"> 
                 <div class="sidebar-right">
-                   
-
+                      <div class="row chatlog">
+                            <ul style="list-style-type:none;" id="messagesList"></ul>
+                        </div>
+                        <div class="row">&nbsp;</div>
                      <footer class="border-top">
                         
                         <div class="input-group chatbar">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">With textarea</span>
-                        </div>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        
+                        <input type="text" id="messageInput"/>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
                         </div>
@@ -66,6 +63,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/sidebar.js" asp-append-version="true"></script>
     <script src="~/js/dashboard.js"></script>
