@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBJProject.Testing", "PBJPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBJProject.Storing", "PBJProject.Storing\PBJProject.Storing.csproj", "{27B4F6A5-0885-4D7E-A1BA-F5B59729B117}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBJProject.WebAPI.Client", "PBJProject.WebAPI.Client\PBJProject.WebAPI.Client.csproj", "{BD572164-4F8D-4E67-BFCF-568B257FB59A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{27B4F6A5-0885-4D7E-A1BA-F5B59729B117}.Release|x64.Build.0 = Release|Any CPU
 		{27B4F6A5-0885-4D7E-A1BA-F5B59729B117}.Release|x86.ActiveCfg = Release|Any CPU
 		{27B4F6A5-0885-4D7E-A1BA-F5B59729B117}.Release|x86.Build.0 = Release|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Debug|x64.Build.0 = Debug|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Debug|x86.Build.0 = Debug|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Release|x64.ActiveCfg = Release|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Release|x64.Build.0 = Release|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Release|x86.ActiveCfg = Release|Any CPU
+		{BD572164-4F8D-4E67-BFCF-568B257FB59A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
