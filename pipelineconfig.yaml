@@ -35,15 +35,16 @@ stages:
           - script: dotnet tool install --global dotnet-sonarscanner
           - script: |
               dotnet sonarscanner begin \
+              /k:benjaminclegg \
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
-              /d:sonar.cs.opencover.reportsPaths=**/PBJProject.Testing/coverage.opencover.xml \
               /d:sonar.javascript.exclusions=**/PBJProject.Client/wwwroot/** \
+              /d:sonar.coverage.exclusions=**/PBJProject.Client/wwwroot/** \
+              /d:sonar.cs.opencover.reportsPaths=**/PBJProject.Testing/coverage.opencover.xml \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
-              /k:benjaminclegg \
               /o:benjaminclegg
               dotnet build ./PBJProject.sln
-              dotnet test ./PBJProject.Client/PBJProject.Client.csproj --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+              dotnet test ./PBJProject.sln --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(sonar.token)
