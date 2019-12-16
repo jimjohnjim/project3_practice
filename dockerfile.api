@@ -1,0 +1,10 @@
+FROM mcr.microsoft.com/dotnet/core/sdk as build
+WORKDIR /aspnet
+COPY . .
+RUN dotnet build
+RUN dotnet publish PBJProject.WebAPI.Client --no-restore -c Release -o out 
+
+FROM mcr.microsoft.com/dotnet/core/aspnet
+WORKDIR /dist
+COPY --from=build /aspnet/out .
+CMD [ "dotnet", "PBJProject.WebAPI.Client.dll" ]

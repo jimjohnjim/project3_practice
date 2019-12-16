@@ -28,6 +28,7 @@ namespace PBJProject.Client
             services.AddDistributedMemoryCache();
             services.AddSession(x => x.IdleTimeout = TimeSpan.FromSeconds(60));
             services.AddSignalR();
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
