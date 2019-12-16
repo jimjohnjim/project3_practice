@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PBJProject.Domain.Models;
+using PBJProject.Storing.Repositories;
 
 namespace PBJProject.WebAPI.Client.Controllers
 {
