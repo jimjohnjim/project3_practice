@@ -20,6 +20,7 @@ namespace PBJProject.Client.Controllers
     {
        if(ModelState.IsValid)
        {
+          
             HttpContext.Session.SetString("name", account.UserName);
             return RedirectToAction("Index","Dashboard", account);
        }

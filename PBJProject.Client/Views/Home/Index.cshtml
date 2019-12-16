@@ -25,7 +25,7 @@
                   @if(ViewBag.LoginError != null)
                   {
                   <div class="alert alert-danger" role="alert">
-                        @ViewBag.Error
+                        @ViewBag.LoginError
                   </div>
                   }
             }
@@ -48,7 +48,7 @@
                 <div class="modal-body">
                   <div class="form-group">
                     <label for="Email">First Name</label>
-                    @Html.TextBoxFor(m => m.FirstName, new{@class="form-control",@id="Username",@placeholder="Enter A First Name"})
+                    @Html.TextBoxFor(m => m.FirstName, new{@class="form-control",@id="FirstName",@placeholder="Enter A First Name"})
                     @if(ViewBag.FirstNameError != null)
                   {
                   <div class="alert alert-danger" role="alert">
@@ -58,15 +58,15 @@
                   </div>
                   <div class="form-group">
                     <label for="Email">Last Name</label>
-                    @Html.TextBoxFor(m => m.LastName, new{@class="form-control",@id="Username",@placeholder="Enter A Last"})
+                    @Html.TextBoxFor(m => m.LastName, new{@class="form-control",@id="LastName",@placeholder="Enter A Last Name"})
                   </div>
                   <div class="form-group">
                     <label for="Email">Username</label>
-                    @Html.TextBoxFor(m => m.UserName, new{@class="form-control",@id="Username",@placeholder="Enter A Username"})
+                    @Html.TextBoxFor(m => m.UserName, new{@class="form-control",@id="UserID",@placeholder="Enter A Username"})
                   </div>
                   <div class="form-group">
                     <label for="Email">Password</label>
-                    @Html.TextBoxFor(m => m.Password, new {@class="form-control",@id="Email",@placeholder="Enter A Passsword"})
+                    @Html.TextBoxFor(m => m.Password, new {@class="form-control",@id="PasswordID",@placeholder="Enter A Password"})
                   </div>
                   <div class="form-group">
                     <label for="Email">Email</label>
