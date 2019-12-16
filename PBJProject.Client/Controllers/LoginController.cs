@@ -29,12 +29,19 @@ namespace PBJProject.Client.Controllers
       return View("~/Views/Home/Index.cshtml", account);
     }
 
-     
+
     public IActionResult Logout()
     {
       HttpContext.Session.SetString("name",null);
 
       return Redirect("/");
+    }
+
+      public IActionResult SignUp()
+    {
+      
+
+      return RedirectToAction("Index","Home");
     }
   }
 }
