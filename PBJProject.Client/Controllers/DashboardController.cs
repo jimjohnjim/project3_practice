@@ -4,7 +4,7 @@ namespace PBJProject.Client.Controllers
 {
   public class DashboardController : Controller
   {
-      public IActionResult Index()
+    public IActionResult Index()
     {
         return View();
     }

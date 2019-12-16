@@ -25,6 +25,9 @@ namespace PBJProject.Storing.Repositories
          {
             _accountsRepository = new List<Account>();
          }
+         
+         this.AccountLibrary.Clear();
+         this.AccountLibrary.AddRange(_sqlAdapter.GetAccounts());
       }
 
       public void Create(Account account)

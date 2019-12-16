@@ -23,7 +23,6 @@ namespace PBJProject.Client.Controllers
         {
             return View();
         }
-
         
          public IActionResult Home()
         {
