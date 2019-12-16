@@ -52,7 +52,7 @@ namespace PBJProject.Storing.Adapters
          return filesList;
       }
 
-      private bool ValidateJSON(string jsonString, string schema)
+      public bool ValidateJSON(string jsonString, string schema)
       {
          JSchema characterSchema = JSchema.Parse(schema);
          JObject tempObject = JObject.Parse(jsonString);

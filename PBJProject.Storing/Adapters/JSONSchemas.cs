@@ -20,8 +20,7 @@ namespace PBJProject.Storing.Adapters
                   'Dexterity': { 'type': 'integer' },
                   'Wisdom': { 'type': 'integer' },
                   'Charisma': { 'type': 'integer' },
-                  'Constitution': { 'type': 'integer' },
-                  'FileName': { 'type': 'string' }
+                  'Constitution': { 'type': 'integer' }
                },
                'additionalProperties': false
             }";
