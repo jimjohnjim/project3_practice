@@ -40,5 +40,10 @@ namespace PBJProject.Storing.Repositories
       {
          return _sqlAdapter.GetAccountObjectbyUserName(userName);
       }
+
+      public int GetAccountIdByUserName(string userName)
+      {
+         return _sqlAdapter.GetAccountIdbyUserName(userName);
+      }
   }
 }
