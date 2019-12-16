@@ -25,25 +25,32 @@
                         </div>
          <ul class="list-unstyled components">
             <p>Your Profile</p>
+                <div id="page-wrapper">
+                    <div>
+                    Select a JSON file: 
+                    <input type="file" id="fileInput">
+                    </div>
+                    <pre id="fileDisplayArea"><pre>
+                </div>
             <li class="active">
                 </ul> 
                 <a href="#homeSubmenu" data-toggle="collapse" class="dropdown-toggle">
                     <h6><strong>Join A Room</strong></h6>
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
-                     <li>
-                        <button type="submit" name="room" value="RoomA" asp-controller="Room" asp-action="Index" >
+                     <li class=".roombutton-hov">
+                        <button type="submit" class="roombutton"name="room" value="RoomA" asp-controller="Room" asp-action="Index" >
                         Room A</button>
                     </li>
-                    <li>
-                        <button type="submit" name="room" value="RoomB" asp-controller="Room" asp-action="Index" >
+                    <li class=".roombutton-hov">
+                        <button type="submit" class="roombutton" name="room" value="RoomB" asp-controller="Room" asp-action="Index" >
                         Room B</button>
                     </li>
                  </ul>
             </li>
             <a href="#pageSubmenu">
                 <p>
-                    <span style="font-size 1em;">
+                    <span style="font-size .5em;">
                         <i class="fas fa-plus-circle"></i>
                     </span>
                     Add A Room
@@ -65,7 +72,7 @@
                 </ul>
             <a asp-controller="Character" asp-action="NewCharacter">
                 <p>
-                    <span style="font-size 1em;">
+                    <span style="font-size .5em;">
                         <i class="fas fa-plus-circle"></i>
                     </span>
                     Add A Character
@@ -80,19 +87,17 @@
                 <div class="main-content">
                     @RenderBody()
     
-                    <div id="page-wrapper">
-                        <div>
-                        Select a JSON file: 
-                        <input type="file" id="fileInput">
-                        </div>
-                        <pre id="fileDisplayArea"><pre>
-                    </div>
+                   <div style="display:flex;"> 
+                       <p>Container 1</p>
+                       <p>Container 2</p>
+                       <p>Container 3</p>
+                   </div>
                 </div>
             </section>
             <section class="col-md-3 sidebar-right-style"> 
                 <div class="sidebar-right">
-                      <div class="row chatlog">
-                            <ul style="list-style-type:none;" id="messagesList"></ul>
+                        <div class="chatlog">
+                            <p style="list-style-type:none;" id="messagesList"></p>
                         </div>
                         <div class="row">&nbsp;</div>
                      <footer class="border-top">
