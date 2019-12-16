@@ -43,7 +43,7 @@ stages:
               /k:benjaminclegg \
               /o:benjaminclegg
               dotnet build PBJProject.sln
-              dotnet test PBJProject.sln --logger trx /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat="opencover"
+              dotnet test PBJProject.sln --logger trx /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(sonar.token)
