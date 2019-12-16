@@ -1,0 +1,55 @@
+ <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Familiar Sidebar</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Your Profile</p>
+            <li class="active">
+                </ul> 
+                <a href="#homeSubmenu" data-toggle="collapse" class="dropdown-toggle">
+                    <h6><strong>Join A Room</strong></h6>
+                </a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                     <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                 </ul>
+            </li>
+            <a href="#pageSubmenu">
+                <p>
+                    <span style="font-size 1em;">
+                        <i class="fas fa-plus-circle"></i>
+                    </span>
+                    Add A Room
+                <p> 
+            </a>
+            <a href="#pageSubmenu" data-toggle="collapse" class="dropdown-toggle">
+                <h6><strong>Characters</strong></h6> 
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                        <a asp-controller="Character" asp-action="ViewCharacter">The Witcher</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Character" asp-action="ViewCharacter">Yennifer</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Character" asp-action="ViewCharacter">Triss Merigold</a>
+                    </li>
+                </ul>
+            <a asp-controller="Character" asp-action="NewCharacter">
+                <p>
+                    <span style="font-size 1em;">
+                        <i class="fas fa-plus-circle"></i>
+                    </span>
+                    Add A Character
+                </p> 
+            </a>
+            <li>
+                <a href="#">About Familiar</a>
+            </li>
+    </nav>

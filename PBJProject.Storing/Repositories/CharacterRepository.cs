@@ -8,6 +8,7 @@ namespace PBJProject.Storing.Repositories
   {
      private List<Character> _characterRepository;
      private static readonly JSONAdapter _jsonAdapter = new JSONAdapter();
+     private static readonly SQLAdapter _sqlAdapter = new SQLAdapter();
 
      public List<Character> CharacterLibrary
      {
@@ -24,33 +25,26 @@ namespace PBJProject.Storing.Repositories
         {
            _characterRepository = new List<Character>();
         }
-
-        Character character1 = new Character();
-
-        character1.Level = 1;
-        character1.Name = "Dummy";
-        character1.Strength = 18;
-        character1.Intelligence = 8;
-        character1.Dexterity = 12;
-        character1.Wisdom = 10;
-        character1.Charisma = 10;
-        character1.Constitution = 16;
-        character1.CharacterClass = "Strongman";
-
-        _characterRepository.Add(character1);
+        this.CharacterLibrary.Clear();
+        this.CharacterLibrary.AddRange(_sqlAdapter.GetCharacters());
      }
-     public void Create(Character character, string path)
+
+     public void Load(string characterBlob)
      {
-        _jsonAdapter.Create(character, path);
+        Character character = _jsonAdapter.Load(characterBlob);
         _characterRepository.Add(character);
+        _sqlAdapter.PersistCharacter(character);
      }
 
-     public void LoadCharacters(string path)
+     public void Create(Character character)
      {
-        List<Character> charactersList = new List<Character>();
-        charactersList = _jsonAdapter.Load(path);
-        _characterRepository.Clear();
-        _characterRepository.AddRange(charactersList);
+        _characterRepository.Add(character);
+        _sqlAdapter.PersistCharacter(character);
+     }
+
+     public List<Character> GetCharactersByAccountId(int accountId)
+     {
+        return _sqlAdapter.GetCharactersByAccountId(accountId);
      }
   }
 }

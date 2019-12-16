@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model PBJProject.Domain.Models.Account
+
+@{
+    ViewData["Title"] = "MyFamiliar Home Page";
 }
 
 <main>
@@ -8,7 +10,64 @@
          <h1 class="display-4">Welcome</h1>
         </div>
         <div class="col-md-6" style="padding-bottom: 30px;padding-top: 30px;padding-right: 100px;padding-left: 100px;">
-            @Html.Partial("_SignUp")
+            @using (Html.BeginForm("index","login"))
+            {
+                <div class="form-group">
+                    <label for="Email">Username</label>
+                    @Html.TextBoxFor(m => m.UserName, new{@class="form-control",@id="Email",@placeholder="Enter Your Email Address"})
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    @Html.TextBoxFor(m => m.Password, new{@class="form-control",@id="Email",@placeholder="Enter Your Password"})
+                </div>
+                <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block">
+            }
         </div>
     </section>
+    <section>
+        <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create A MyFamiliar Account</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+               @using (Html.BeginForm("index","signup"))
+              {
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="Email">First Name</label>
+                    @Html.TextBoxFor(m => m.FirstName, new{@class="form-control",@id="Username",@placeholder="Enter A First Name"})
+                  </div>
+                  <div class="form-group">
+                    <label for="Email">Last Name</label>
+                    @Html.TextBoxFor(m => m.LastName, new{@class="form-control",@id="Username",@placeholder="Enter A Last"})
+                  </div>
+                  <div class="form-group">
+                    <label for="Email">Username</label>
+                    @Html.TextBoxFor(m => m.UserName, new{@class="form-control",@id="Username",@placeholder="Enter A Username"})
+                  </div>
+                  <div class="form-group">
+                    <label for="Email">Password</label>
+                    @Html.TextBoxFor(m => m.Password, new {@class="form-control",@id="Email",@placeholder="Enter A Passsword"})
+                  </div>
+                  <div class="form-group">
+                    <label for="Email">Email</label>
+                    @Html.TextBoxFor(m => m.Email, new {@class="form-control",@id="Email",@placeholder="Enter A Email Address"})
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <input type="submit" value="Create New Account" class="btn btn-lg btn-primary btn-block">
+                </div>
+              }
+          </div>
+        </div>
+      </div>
+    </section>
 </main>
+
+<script src="~/js/login.js"></script>

@@ -7,26 +7,69 @@
     <script src="https://kit.fontawesome.com/9c9a98a47a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/PBJ.css" />
+    <link rel="stylesheet" href="~/css/dashboard.css" />
 </head>
 <body>
+    
+        @Html.Partial("_DashBoardNavBar");
 
-    
-    
-    
-     @RenderBody()
-   
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - Familiar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <!-- Page Content -->
+    <main class="container-fluid">
+        <article class="row"> 
+            <section class="col-md-2 sidebar-left-style">
+                <div class="sidebar-left">
+                    <!-- Sidebar Navbar -->
+                    @Html.Partial("_DashBoardSideBar");
+            </section>
+            <section class="col-md-7">
+                <div class="main-content">
+                    @RenderBody()
+                      @using (Html.BeginForm("index","room")){
+                        <input type="submit" name="room" value="RoomB">
+                        <input type="submit" name="room" value="RoomA">
+                    }
+                    <div id="page-wrapper">
+                        <div>
+                        Select a JSON file: 
+                        <input type="file" id="fileInput">
+                        </div>
+                        <pre id="fileDisplayArea"><pre>
+                    </div>
+                </div>
+            </section>
+            <section class="col-md-3 sidebar-right-style"> 
+                <div class="sidebar-right">
+                   
+
+                     <footer class="border-top">
+                        
+                        <div class="input-group chatbar">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">With textarea</span>
+                        </div>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+                        </div>
+                        </div>
+                    </footer>
+                </div>
+            </section>
+        </article>     
+    </main>
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/sidebar.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard.js"></script>
+    <script src="~/js/filereader.js"></script>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

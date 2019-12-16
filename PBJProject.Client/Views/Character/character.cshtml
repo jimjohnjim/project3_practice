@@ -1,11 +1,10 @@
 @{
-    ViewData["Title"] = "Dashboard Page";
+    ViewData["Title"] = "Familiar Character Page";
     Layout="~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<div class="col-md-6 text-center">
-     <h1 class="display-4">Dashboard Display</h1>
-</div>
+@Html.Partial("_NewCharacter")
+
 
 <footer class="border-top footer-content text-muted">
     <div class="container">

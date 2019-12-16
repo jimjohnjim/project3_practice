@@ -38,11 +38,12 @@ stages:
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
               /d:sonar.cs.opencover.reportsPaths=**/TestResults/*/coverage.opencover.xml \
+              /d:sonar.javascript.exclusions=**/PBJProject.Client/wwwroot/** \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /k:benjaminclegg \
               /o:benjaminclegg
               dotnet build PBJProject.sln
-              dotnet test PBJProject.sln --logger trx
+              dotnet test PBJProject.sln --logger trx /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat="cobertura,opencover"
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(sonar.token)
@@ -52,7 +53,7 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: docker image build -f dockerfile -t benjaminclegg/devops:$BUILD_NAME .
+          - script: docker image build -t benjaminclegg/devops:$BUILD_NAME .
             env:
               BUILD_NAME: $(Build.DefinitionName)
           - script: docker login --username $DOCKER_USER --password $DOCKER_TOKEN

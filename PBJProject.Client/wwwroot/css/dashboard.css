@@ -1,0 +1,155 @@
+body{
+  margin-bottom: none;
+  height:100%
+}
+.dashnav{
+  position: fixed;
+}
+
+.footer-content{
+  margin-top: 100px;
+}
+
+.chatbox{
+  scrollbar-width: none;
+}
+.chatbar{
+  position: fixed;
+  width:300px;
+  top: 550px;
+  font-size: 18px;
+  z-index: 10;
+}
+.main-content{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 95px;
+  height: 2500px;
+}
+
+.dashcontent{
+  margin-top: 15;
+}
+.dashnav{
+  position: fixed;
+  width:100%;
+  top: 0;
+  z-index: 10;
+}
+.sidebar-right-style{
+  border-left-width: 2px;
+  border-left: #E8E8E8;
+  border-style: ridge; 
+}
+
+.sidebar-right{
+  position: fixed;
+  right:auto;
+  margin: auto;
+  width: 325px;
+  height: 100%;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* .chatlog{
+  background-color: rebeccapurple;
+  position: fixed;
+  right:auto;
+  bottom: 140.067px;
+  height: 100%;
+  margin: auto;
+  width: 325px;
+  overflow-y: auto;
+  scrollbar-width: none;
+} */
+.sidebar-right::-webkit-scrollbar {
+  display: none;
+}
+.sidebar-left-style{
+  background-color: royalblue;
+  padding-top: 40px;
+
+}
+.fa-dragon{
+  color:red;
+}
+.sidebar-left{
+  position: fixed;
+  margin: auto;
+  left:0;
+  right: 1161.8px;
+  width: 220px;
+  height: 100%;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar-left::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+
+/* a[data-toggle="collapse"] {
+  position: relative;
+} */
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+
+

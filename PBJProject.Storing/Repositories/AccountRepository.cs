@@ -1,10 +1,12 @@
 using PBJProject.Domain.Models;
+using PBJProject.Storing.Adapters;
 using System.Collections.Generic;
 
 namespace PBJProject.Storing.Repositories
 {
   public class AccountRepository : IAccountRepository
   {
+     private static readonly SQLAdapter _sqlAdapter = new SQLAdapter();
       private List<Account> _accountsRepository;
       
       public List<Account> AccountLibrary
@@ -23,23 +25,17 @@ namespace PBJProject.Storing.Repositories
          {
             _accountsRepository = new List<Account>();
          }
-
-         Account account1 = new Account();
-         account1.UserName = "Phillip";
-         _accountsRepository.Add(account1);
-
-         Account account2 = new Account();
-         account2.UserName = "Joshua";
-         _accountsRepository.Add(account2);
-
-         Account account3 = new Account();
-         account3.UserName = "Benjamin";
-         _accountsRepository.Add(account3);
       }
 
       public void Create(Account account)
       {
          _accountsRepository.Add(account);
+         _sqlAdapter.PersistAccount(account);
+      }
+
+      public int GetAccountIdByAccountUserName(string userName)
+      {
+         return _sqlAdapter.GetAccountIdByAccountUserName(userName);
       }
   }
 }
