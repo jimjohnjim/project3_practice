@@ -1,16 +1,22 @@
 "use strict";
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+connection.logging=true;
 
-connection.start();
+connection.onclose();
 
+
+connection.start().then(function() {
 
 
 document.getElementsByName("room").forEach(item => {
   item.addEventListener("click",function(){
     sessionStorage.setItem('room',item.value)
-    connection.invoke("JoinRoom",sessionStorage.getItem("name"), sessionStorage.getItem("room"));
+    connection.invoke("JoinRoom",sessionStorage.getItem("name"), sessionStorage.getItem("room")).catch(err => 
+      console.error(err))
+    });
   })
+
 })
 
 
@@ -22,20 +28,20 @@ connection.on("ReceiveMessage", function (user, message) {
     document.getElementById("messagesList").appendChild(li);
 });
 
-connection.start().then(function () {
-    document.getElementById("sendButton").disabled = false;
-}).catch(function (err) {
-    return console.error(err.toString());
-});
+// connection.start().then(function () {
+//     document.getElementById("sendButton").disabled = false;
+// }).catch(function (err) {
+//     return console.error(err.toString());
+// });
 
-document.getElementById("sendButton").addEventListener("click", function (event) {
-    var user = sessionStorage.getItem('name');
-    var message = document.getElementById("messageInput").value;
-    connection.invoke("SendMessage", user, message).catch(function (err) {
-        return console.error(err.toString());
-    });
-    event.preventDefault();
-});
+// document.getElementById("sendButton").addEventListener("click", function (event) {
+//     var user = sessionStorage.getItem('name');
+//     var message = document.getElementById("messageInput").value;
+//     connection.invoke("SendMessage", user, message).catch(function (err) {
+//         return console.error(err.toString());
+//     });
+//     event.preventDefault();
+// });
 
 document.getElementById("messageInput").addEventListener("keyup", function (event) {
   if(event.keyCode === 13){
@@ -102,4 +108,51 @@ function SendUsers(users){
   li.textContent = encodedMsg;
   li.setAttribute("class","font-weight-bold");
   document.getElementById("messagesList").appendChild(li);
+}
+
+
+
+window.onload = function() {
+  var fileInput = document.getElementById('fileInput');
+  var fileDisplayArea = document.getElementById('fileDisplayArea');
+
+  fileInput.addEventListener('change', function(e) {
+    var file = fileInput.files[0];
+    var textType = "application/json";
+
+    if (file.type.match(textType)) {
+      var reader = new FileReader();
+
+      reader.onload = function() {
+        fileDisplayArea.innerText = reader.result;
+      }
+      parse(file).then((message) => {
+        console.log(message);
+
+      connection.invoke("LoadFile", message)
+
+      });
+
+    } else {
+      fileDisplayArea.innerText = "File not supported!"
+    }
+  });
+}
+
+function parse(file) {
+  return new Promise((resolve,reject) => {
+    let content = '';
+    const reader = new FileReader();
+
+    reader.onloadend = function(e) {
+      content = e.target.result;
+      resolve(content);
+    };
+
+    reader.onerror = function (e) {
+      reject(e);
+    };
+
+    reader.readAsText(file);
+  });
 }
