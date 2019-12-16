@@ -8,6 +8,7 @@ namespace PBJProject.Storing
   {
     public DbSet<Account> Account { get; set; }
     public DbSet<Character> Character { get; set; }
+    public DbSet<DiceEntity> DiceEntity { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder dbContext)
     {
@@ -96,6 +97,9 @@ namespace PBJProject.Storing
                           Constitution = 10
                         },
          });
+
+         builder.Entity<DiceEntity>(o => o.HasKey(k => k.PrimaryId));
+         //builder.Entity<DiceEntity>().Property(p => p.PrimaryId);
       }
     }
 }

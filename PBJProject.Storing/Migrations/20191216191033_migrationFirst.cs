@@ -7,6 +7,9 @@ namespace PBJProject.Storing.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateSequence<int>(
+                name: "PrimaryId");
+
             migrationBuilder.CreateTable(
                 name: "Account",
                 columns: table => new
@@ -22,6 +25,21 @@ namespace PBJProject.Storing.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Account", x => x.AccountId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DiceEntity",
+                columns: table => new
+                {
+                    PrimaryId = table.Column<int>(nullable: false, defaultValueSql: "nextval('\"PrimaryId\"')"),
+                    Value = table.Column<int>(nullable: false),
+                    Sum = table.Column<int>(nullable: false),
+                    Highest = table.Column<int>(nullable: false),
+                    RollId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DiceEntity", x => x.PrimaryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,7 +104,13 @@ namespace PBJProject.Storing.Migrations
                 name: "Character");
 
             migrationBuilder.DropTable(
+                name: "DiceEntity");
+
+            migrationBuilder.DropTable(
                 name: "Account");
+
+            migrationBuilder.DropSequence(
+                name: "PrimaryId");
         }
     }
 }
