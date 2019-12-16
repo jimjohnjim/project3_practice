@@ -17,7 +17,7 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: dotnet test PBJProject.sln --logger trx --collect:"XPlat Code Coverage"
+          - script: dotnet test PBJProject.sln --collect:"XPlat Code Coverage"
           - task: PublishCodeCoverageResults@1
             inputs:
               codeCoverageTool: cobertura
@@ -43,7 +43,7 @@ stages:
               /k:benjaminclegg \
               /o:benjaminclegg
               dotnet build PBJProject.sln
-              dotnet test PBJProject.sln --logger trx /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
+              dotnet test PBJProject.Client/PBJProject.Client.csproj --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(sonar.token)
