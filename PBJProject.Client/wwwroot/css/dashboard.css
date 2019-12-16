@@ -54,17 +54,12 @@ body{
   scrollbar-width: none;
 }
 
-/* .chatlog{
-  background-color: rebeccapurple;
-  position: fixed;
-  right:auto;
+.chatlog{
   bottom: 140.067px;
   height: 100%;
   margin: auto;
   width: 325px;
-  overflow-y: auto;
-  scrollbar-width: none;
-} */
+}
 .sidebar-right::-webkit-scrollbar {
   display: none;
 }

@@ -12,10 +12,10 @@
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                      <li>
-                        <a href="#">Page 1</a>
+                        <a name="room" value="RoomA">@Html.ActionLink("Room A", "Index", "Room")</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
+                        <a name="room" value="RoomB">@Html.ActionLink("Room B", "Index", "Room")</a>
                     </li>
                  </ul>
             </li>
@@ -53,3 +53,5 @@
                 <a href="#">About Familiar</a>
             </li>
     </nav>
+
+    <script src="~/js/dashboard.js"></script>

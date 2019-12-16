@@ -14,7 +14,7 @@ namespace PBJProject.Client.Controllers
         return Redirect("/");
       }
 
-      return RedirectToAction("Chat");
+      return RedirectToAction("Index","Dashboard");
     }
 
     public ActionResult Chat()

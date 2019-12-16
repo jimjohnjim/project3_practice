@@ -2,12 +2,17 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
-//Disable send button until connection is established
-document.getElementById("sendButton").disabled = true;
+connection.start();
 
-connection.start().then(function(){
-  connection.invoke("JoinRoom",sessionStorage.getItem("name"), sessionStorage.getItem("room"));
-});
+
+
+document.getElementsByName("room").forEach(item => {
+  item.addEventListener("click",function(){
+    sessionStorage.setItem('room',item.value)
+    connection.invoke("JoinRoom",sessionStorage.getItem("name"), sessionStorage.getItem("room"));
+  })
+})
+
 
 connection.on("ReceiveMessage", function (user, message) {
     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
