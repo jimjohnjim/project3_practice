@@ -1,4 +1,4 @@
-@{
+	@{
     ViewData["Title"] = "Dashboard Page";
     Layout="~/Views/Shared/_DashboardLayout.cshtml";
 }
@@ -6,6 +6,17 @@
 <div class="col-md-6 text-center">
      <h1 class="display-4">Dashboard Display</h1>
 </div>
+
+@if(ViewBag.Account != null)
+{
+   <div class="col-md-6 text-center">
+      <h1 class="display-4"></h1>
+      @foreach(var c in ViewBag.Account.MyCharacters)
+      {
+         <h1 class="display-4">@c.Name</h1>
+      }
+   </div>
+}
 
 <footer class="border-top footer-content text-muted">
     <div class="container">

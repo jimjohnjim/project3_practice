@@ -29,6 +29,11 @@ namespace PBJProject.Storing.Adapters
          return _db.Character.Where(x => x.AccountId == accountId).ToList();
       }
 
+      public int GetAccountIdbyUserName(string userName)
+      {
+         return _db.Account.FirstOrDefault(x => x.UserName == userName).AccountId;
+      }
+
       public Account GetAccountObjectbyUserName(string userName)
       {
          return _db.Account.FirstOrDefault(x => x.UserName == userName);

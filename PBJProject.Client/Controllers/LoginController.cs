@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PBJProject.Client.Models;
+using PBJProject.Domain.Models;
 using PBJProject.Storing.Repositories;
 
 namespace PBJProject.Client.Controllers
@@ -15,15 +16,24 @@ namespace PBJProject.Client.Controllers
         return View(new Login());
     }
 
-    [HttpPost]
+	[HttpPost]
     public IActionResult Index(Login account)
     {
        if(ModelState.IsValid)
        {
-          AccountModel actualAccount = new AccountModel();
-  //        actualAccount = _ar.GetAccountObjectbyUserName(account.UserName);
+          Account actualAccount = new Account();
+          AccountModel accountModel = new AccountModel();
+          actualAccount = _ar.GetAccountObjectbyUserName(account.UserName);
+
+          accountModel.AccountId = actualAccount.AccountId;
+          accountModel.Email = actualAccount.Email;
+          accountModel.FirstName = actualAccount.FirstName;
+          accountModel.LastName = actualAccount.LastName;
+          accountModel.Password = actualAccount.Password;
+          accountModel.UserName = actualAccount.UserName;
+
           HttpContext.Session.SetString("name", account.UserName);
-          return RedirectToAction("Index","Dashboard", account);
+          return RedirectToAction("Index","Dashboard", accountModel);
        }
 
       ViewBag.LoginError = "Invalid Username and\\or Password";
