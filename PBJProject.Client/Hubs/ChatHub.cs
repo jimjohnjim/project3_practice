@@ -6,6 +6,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace PBJProject.Client.Hubs
 {
@@ -21,8 +22,10 @@ namespace PBJProject.Client.Hubs
       var caller = Users[Context.ConnectionId];
       if(message[0] == '/' && message[1] == 'r')
       {
+        Regex rx = new Regex(@"\d*d\d*$",RegexOptions.IgnoreCase);
+        Match match = rx.Match(message);
 
-        var a = await client.GetAsync("http://webapi/api/dice/3d20");
+        var a = await client.GetAsync("http://webapi/api/dice/"+match.Value);
         var b = a.Content;
         var c = await b.ReadAsStringAsync();
         Dice dice = null;
