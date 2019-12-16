@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.SignalR;
 using PBJProject.Client.Models;
 using PBJProject.Domain.Models;
+using PBJProject.Storing.Repositories;
 using System;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
@@ -48,6 +49,14 @@ namespace PBJProject.Client.Hubs
       numUsers.AddOrUpdate(caller.group,1,(key, oldValue) => oldValue - 1);
       await Clients.Group(caller.group).SendAsync("UserLeft",caller.name,numUsers[caller.group]);
       Users.TryRemove(Context.ConnectionId, out caller);
+    }
+
+    public Task LoadFile(string filecontents)
+    {
+      var repo = new CharacterRepository();
+      repo.Load(filecontents);
+      System.Console.WriteLine(filecontents);
+      return null;
     }
 
   }
