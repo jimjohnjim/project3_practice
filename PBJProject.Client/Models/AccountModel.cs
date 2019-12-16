@@ -3,7 +3,7 @@ using PBJProject.Domain.Models;
 
 namespace PBJProject.Client.Models
 {
-  public class Account
+  public class AccountModel
   {
     public int AccountId { get; set; }
     public string UserName { get; set; }
