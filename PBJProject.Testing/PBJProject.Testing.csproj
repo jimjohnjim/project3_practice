@@ -28,7 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PBJProject.Domain\PBJProject.Domain.csproj" />
     <ProjectReference Include="..\PBJProject.Client\PBJProject.Client.csproj" />
-    <ProjectReference Include="..\PBJProject.WebApi.Client\PBJProject.WebApi.Client.csproj" />
+    <ProjectReference Include="..\PBJProject.WebAPI.Client\PBJProject.WebAPI.Client.csproj" />
   </ItemGroup>
 
 </Project>
