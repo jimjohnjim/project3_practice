@@ -10,7 +10,7 @@ using PBJProject.Storing;
 namespace PBJProject.Storing.Migrations
 {
     [DbContext(typeof(PbjDbContext))]
-    [Migration("20191215211848_migrationFirst")]
+    [Migration("20191216191033_migrationFirst")]
     partial class migrationFirst
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,7 +19,8 @@ namespace PBJProject.Storing.Migrations
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63)
+                .HasAnnotation("Relational:Sequence:.PrimaryId", "'PrimaryId', '', '1', '1', '', '', 'Int32', 'False'");
 
             modelBuilder.Entity("PBJProject.Domain.Models.Account", b =>
                 {
@@ -178,6 +179,30 @@ namespace PBJProject.Storing.Migrations
                             Strength = 10,
                             Wisdom = 10
                         });
+                });
+
+            modelBuilder.Entity("PBJProject.Domain.Models.DiceEntity", b =>
+                {
+                    b.Property<int>("PrimaryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValueSql("nextval('\"PrimaryId\"')");
+
+                    b.Property<int>("Highest")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RollId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Sum")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("integer");
+
+                    b.HasKey("PrimaryId");
+
+                    b.ToTable("DiceEntity");
                 });
 
             modelBuilder.Entity("PBJProject.Domain.Models.Character", b =>

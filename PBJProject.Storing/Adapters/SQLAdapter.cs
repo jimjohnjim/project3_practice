@@ -14,6 +14,25 @@ namespace PBJProject.Storing.Adapters
          _db.SaveChanges();
       }
 
+      public void PersistAccount(Account account)
+      {
+         _db.Account.Add(account);
+         _db.SaveChanges();
+      }
+
+      public void PersistDice(DiceEntity dice)
+      {
+         int lastKey = _db.DiceEntity.Max(p => p.PrimaryId);
+         dice.PrimaryId = ++lastKey;
+         _db.DiceEntity.Add(dice);
+         _db.SaveChanges();
+      }
+
+      public void Save()
+      {
+         _db.SaveChanges();
+      }
+
       public List<Character> GetCharacters()
       {
          return _db.Character.ToList();
@@ -22,6 +41,11 @@ namespace PBJProject.Storing.Adapters
       public List<Account> GetAccounts()
       {
          return _db.Account.ToList();
+      }
+
+      public List<DiceEntity> GetDice()
+      {
+         return _db.DiceEntity.ToList();
       }
 
       public List<Character> GetCharactersByAccountId(int accountId)
@@ -37,12 +61,6 @@ namespace PBJProject.Storing.Adapters
       public Account GetAccountObjectbyUserName(string userName)
       {
          return _db.Account.FirstOrDefault(x => x.UserName == userName);
-      }
-
-      public void PersistAccount(Account account)
-      {
-         _db.Account.Add(account);
-         _db.SaveChanges();
       }
    }
 }
