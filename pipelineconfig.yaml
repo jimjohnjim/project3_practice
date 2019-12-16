@@ -37,7 +37,7 @@ stages:
               dotnet sonarscanner begin \
               /d:sonar.login=$SONAR_TOKEN \
               /d:sonar.host.url=https://sonarcloud.io/ \
-              /d:sonar.cs.opencover.reportsPaths=**/TestResults/*/coverage.opencover.xml \
+              /d:sonar.cs.opencover.reportsPaths=**/PBJProject.Testing/coverage.opencover.xml \
               /d:sonar.javascript.exclusions=**/PBJProject.Client/wwwroot/** \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /k:benjaminclegg \
