@@ -9,7 +9,7 @@
    </ItemGroup>
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <DebugType>Full</DebugType>
   </PropertyGroup>
 
