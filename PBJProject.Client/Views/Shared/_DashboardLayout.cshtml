@@ -24,41 +24,23 @@
             <section class="col-md-7">
                 <div class="main-content">
                     @RenderBody()
-                
+                      @using (Html.BeginForm("index","room")){
+                        <input type="submit" name="room" value="RoomB">
+                        <input type="submit" name="room" value="RoomA">
+                    }
+                    <div id="page-wrapper">
+                        <div>
+                        Select a JSON file: 
+                        <input type="file" id="fileInput">
+                        </div>
+                        <pre id="fileDisplayArea"><pre>
+                    </div>
                 </div>
             </section>
             <section class="col-md-3 sidebar-right-style"> 
                 <div class="sidebar-right">
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
-                        <p>Hello</p>
+                   
+
                      <footer class="border-top">
                         
                         <div class="input-group chatbar">
@@ -86,6 +68,8 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/sidebar.js" asp-append-version="true"></script>
     <script src="~/js/dashboard.js"></script>
+    <script src="~/js/filereader.js"></script>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
