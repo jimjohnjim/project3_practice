@@ -10,7 +10,7 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: dotnet build PBJProject.WebApi.Client/PBJProject.WebApi.Client.csproj
+          - script: dotnet build ./PBJProject.WebAPI.Client\PBJProject.WebAPI.Client.csproj
   - stage: test
     jobs:
       - job: aspnet_test
