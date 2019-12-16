@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="2f686480-eadf-43c4-8777-a1c4df63b43e" name="Revature Loaner@DESKTOP-56DNEJM 2019-12-16 17:05:47" runUser="DESKTOP-56DNEJM\Revature Loaner" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2019-12-16T17:05:47.6880901-06:00" queuing="2019-12-16T17:05:47.6880917-06:00" start="2019-12-16T17:05:46.1487640-06:00" finish="2019-12-16T17:05:47.7390980-06:00" />
+  <TestSettings name="default" id="0796928e-583b-4522-8e30-b8f4092c7adc">
+    <Deployment runDeploymentRoot="Revature_Loaner_DESKTOP-56DNEJM_2019-12-16_17_05_47" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="1e97e1c1-b692-42fd-833f-29a981c255ca" testId="66af72f1-130e-f992-015c-e33cf673b779" testName="PBJProject.Testing.Specs.PBJProject.Domain.Models.ChatParserTest.Test_GetRoll" computerName="DESKTOP-56DNEJM" duration="00:00:00.0069028" startTime="2019-12-16T17:05:47.5626812-06:00" endTime="2019-12-16T17:05:47.5627637-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e97e1c1-b692-42fd-833f-29a981c255ca" />
+    <UnitTestResult executionId="79bbb1bb-e437-42eb-b7b1-c3ca9417641a" testId="3354fcb4-5a3b-cf7c-5233-7ab7c9db4bcd" testName="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Roll_HasValuesInRange(numDice: 3, sidesDice: 6)" computerName="DESKTOP-56DNEJM" duration="00:00:00.0019113" startTime="2019-12-16T17:05:47.5673108-06:00" endTime="2019-12-16T17:05:47.5673109-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="79bbb1bb-e437-42eb-b7b1-c3ca9417641a" />
+    <UnitTestResult executionId="dd6034db-cd13-4f53-88e0-d8a474d19bde" testId="228ebfee-204d-8838-55e0-d96892910bf9" testName="PBJProject.Testing.Specs.PBJProject.Client.Hubs.ChatHubTest.Test_OnConnectedAsync" computerName="DESKTOP-56DNEJM" duration="00:00:00.0736364" startTime="2019-12-16T17:05:47.6428449-06:00" endTime="2019-12-16T17:05:47.6428450-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd6034db-cd13-4f53-88e0-d8a474d19bde" />
+    <UnitTestResult executionId="792879d5-e00c-419b-bc7f-f6464205cc06" testId="29ae25ad-1cda-d181-1adf-6c902f186c70" testName="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_LoadWithBadDataReturnsNull" computerName="DESKTOP-56DNEJM" duration="00:00:00.0004843" startTime="2019-12-16T17:05:47.6427655-06:00" endTime="2019-12-16T17:05:47.6427659-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="792879d5-e00c-419b-bc7f-f6464205cc06" />
+    <UnitTestResult executionId="3d2bab8a-3362-4486-b1ec-2732a79d3663" testId="93227ed2-18e2-1658-27fa-1f9dc3340a60" testName="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_RemoveOneDieFromPool(numDice: 3)" computerName="DESKTOP-56DNEJM" duration="00:00:00.0047620" startTime="2019-12-16T17:05:47.5658347-06:00" endTime="2019-12-16T17:05:47.5658355-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3d2bab8a-3362-4486-b1ec-2732a79d3663" />
+    <UnitTestResult executionId="37f07ea5-5d35-424b-aca4-6d46fe3c8b9e" testId="6128f707-8a9d-06ff-eb3b-b1039db6a58e" testName="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_ValidateJSONWithBadData" computerName="DESKTOP-56DNEJM" duration="00:00:00.0611321" startTime="2019-12-16T17:05:47.6151069-06:00" endTime="2019-12-16T17:05:47.6151097-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="37f07ea5-5d35-424b-aca4-6d46fe3c8b9e" />
+    <UnitTestResult executionId="eca2c8f5-7b0c-4e91-8cc7-6b4f27c14e26" testId="5cf7e102-db26-3731-bf78-042dca6f184b" testName="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_LoadWithGoodDataReturnsCharacter" computerName="DESKTOP-56DNEJM" duration="00:00:00.0051256" startTime="2019-12-16T17:05:47.6428127-06:00" endTime="2019-12-16T17:05:47.6428129-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eca2c8f5-7b0c-4e91-8cc7-6b4f27c14e26" />
+    <UnitTestResult executionId="a43b13ad-6bce-4cac-9104-e0ed275b8172" testId="512baac2-1eaf-c254-e7fd-74ac05d88b5f" testName="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Highest(values: [1, 2, 3])" computerName="DESKTOP-56DNEJM" duration="00:00:00.0006089" startTime="2019-12-16T17:05:47.5675549-06:00" endTime="2019-12-16T17:05:47.5675555-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a43b13ad-6bce-4cac-9104-e0ed275b8172" />
+    <UnitTestResult executionId="f646b5a7-b4a3-4c0e-a1c3-cc104198d992" testId="1c3986f0-88a1-4646-4e12-5907324eac53" testName="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_AddOneDieToPool(numDice: 3)" computerName="DESKTOP-56DNEJM" duration="00:00:00.0001942" startTime="2019-12-16T17:05:47.5673727-06:00" endTime="2019-12-16T17:05:47.5673730-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f646b5a7-b4a3-4c0e-a1c3-cc104198d992" />
+    <UnitTestResult executionId="d0efb67c-dabf-438a-b62a-e65b127f22ec" testId="f7a5ab55-ff25-1567-ba94-2b6a78f7221d" testName="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Sum(values: [1, 2, 3])" computerName="DESKTOP-56DNEJM" duration="00:00:00.0005888" startTime="2019-12-16T17:05:47.5674605-06:00" endTime="2019-12-16T17:05:47.5674612-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d0efb67c-dabf-438a-b62a-e65b127f22ec" />
+    <UnitTestResult executionId="5ad587f9-e1fb-41fd-a54a-e3a26a27c52b" testId="a2130c80-2f30-eea6-7918-72d3823d0e36" testName="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_ValidateJSONWithGoodData" computerName="DESKTOP-56DNEJM" duration="00:00:00.0021411" startTime="2019-12-16T17:05:47.6425949-06:00" endTime="2019-12-16T17:05:47.6425958-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ad587f9-e1fb-41fd-a54a-e3a26a27c52b" />
+    <UnitTestResult executionId="727ffca0-8daf-4328-919d-6802ac05d755" testId="c07e3421-51f4-c46a-9f10-5773b8b937ae" testName="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Roll_HasValues" computerName="DESKTOP-56DNEJM" duration="00:00:00.0006558" startTime="2019-12-16T17:05:47.5672560-06:00" endTime="2019-12-16T17:05:47.5672568-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="727ffca0-8daf-4328-919d-6802ac05d755" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Client.Hubs.ChatHubTest.Test_OnConnectedAsync" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="228ebfee-204d-8838-55e0-d96892910bf9">
+      <Execution id="dd6034db-cd13-4f53-88e0-d8a474d19bde" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Client.Hubs.ChatHubTest" name="PBJProject.Testing.Specs.PBJProject.Client.Hubs.ChatHubTest.Test_OnConnectedAsync" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Roll_HasValuesInRange(numDice: 3, sidesDice: 6)" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="3354fcb4-5a3b-cf7c-5233-7ab7c9db4bcd">
+      <Execution id="79bbb1bb-e437-42eb-b7b1-c3ca9417641a" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest" name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Roll_HasValuesInRange(numDice: 3, sidesDice: 6)" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Highest(values: [1, 2, 3])" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="512baac2-1eaf-c254-e7fd-74ac05d88b5f">
+      <Execution id="a43b13ad-6bce-4cac-9104-e0ed275b8172" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest" name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Highest(values: [1, 2, 3])" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_LoadWithGoodDataReturnsCharacter" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="5cf7e102-db26-3731-bf78-042dca6f184b">
+      <Execution id="eca2c8f5-7b0c-4e91-8cc7-6b4f27c14e26" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest" name="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_LoadWithGoodDataReturnsCharacter" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Sum(values: [1, 2, 3])" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="f7a5ab55-ff25-1567-ba94-2b6a78f7221d">
+      <Execution id="d0efb67c-dabf-438a-b62a-e65b127f22ec" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest" name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Sum(values: [1, 2, 3])" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_AddOneDieToPool(numDice: 3)" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="1c3986f0-88a1-4646-4e12-5907324eac53">
+      <Execution id="f646b5a7-b4a3-4c0e-a1c3-cc104198d992" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest" name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_AddOneDieToPool(numDice: 3)" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_LoadWithBadDataReturnsNull" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="29ae25ad-1cda-d181-1adf-6c902f186c70">
+      <Execution id="792879d5-e00c-419b-bc7f-f6464205cc06" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest" name="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_LoadWithBadDataReturnsNull" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_ValidateJSONWithGoodData" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="a2130c80-2f30-eea6-7918-72d3823d0e36">
+      <Execution id="5ad587f9-e1fb-41fd-a54a-e3a26a27c52b" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest" name="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_ValidateJSONWithGoodData" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Domain.Models.ChatParserTest.Test_GetRoll" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="66af72f1-130e-f992-015c-e33cf673b779">
+      <Execution id="1e97e1c1-b692-42fd-833f-29a981c255ca" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Domain.Models.ChatParserTest" name="PBJProject.Testing.Specs.PBJProject.Domain.Models.ChatParserTest.Test_GetRoll" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_RemoveOneDieFromPool(numDice: 3)" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="93227ed2-18e2-1658-27fa-1f9dc3340a60">
+      <Execution id="3d2bab8a-3362-4486-b1ec-2732a79d3663" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest" name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_RemoveOneDieFromPool(numDice: 3)" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_ValidateJSONWithBadData" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="6128f707-8a9d-06ff-eb3b-b1039db6a58e">
+      <Execution id="37f07ea5-5d35-424b-aca4-6d46fe3c8b9e" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest" name="PBJProject.Testing.Specs.PBJProject.Storing.Adapters.JSONAdapterTest.Test_ValidateJSONWithBadData" />
+    </UnitTest>
+    <UnitTest name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Roll_HasValues" storage="c:\users\ben\dreamteam\pbjproject\pbjproject.testing\bin\debug\netcoreapp3.0\pbjproject.testing.dll" id="c07e3421-51f4-c46a-9f10-5773b8b937ae">
+      <Execution id="727ffca0-8daf-4328-919d-6802ac05d755" />
+      <TestMethod codeBase="C:\Users\ben\dreamteam\PBJProject\PBJProject.Testing\bin\Debug\netcoreapp3.0\PBJProject.Testing.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest" name="PBJProject.Testing.Specs.PBJProject.Domain.Models.DiceTest.Test_Dice_Roll_HasValues" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="66af72f1-130e-f992-015c-e33cf673b779" executionId="1e97e1c1-b692-42fd-833f-29a981c255ca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3354fcb4-5a3b-cf7c-5233-7ab7c9db4bcd" executionId="79bbb1bb-e437-42eb-b7b1-c3ca9417641a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="228ebfee-204d-8838-55e0-d96892910bf9" executionId="dd6034db-cd13-4f53-88e0-d8a474d19bde" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="29ae25ad-1cda-d181-1adf-6c902f186c70" executionId="792879d5-e00c-419b-bc7f-f6464205cc06" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="93227ed2-18e2-1658-27fa-1f9dc3340a60" executionId="3d2bab8a-3362-4486-b1ec-2732a79d3663" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6128f707-8a9d-06ff-eb3b-b1039db6a58e" executionId="37f07ea5-5d35-424b-aca4-6d46fe3c8b9e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5cf7e102-db26-3731-bf78-042dca6f184b" executionId="eca2c8f5-7b0c-4e91-8cc7-6b4f27c14e26" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="512baac2-1eaf-c254-e7fd-74ac05d88b5f" executionId="a43b13ad-6bce-4cac-9104-e0ed275b8172" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1c3986f0-88a1-4646-4e12-5907324eac53" executionId="f646b5a7-b4a3-4c0e-a1c3-cc104198d992" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f7a5ab55-ff25-1567-ba94-2b6a78f7221d" executionId="d0efb67c-dabf-438a-b62a-e65b127f22ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a2130c80-2f30-eea6-7918-72d3823d0e36" executionId="5ad587f9-e1fb-41fd-a54a-e3a26a27c52b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c07e3421-51f4-c46a-9f10-5773b8b937ae" executionId="727ffca0-8daf-4328-919d-6802ac05d755" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="12" executed="12" passed="12" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.0 (64-bit .NET Core 3.0.0)&#xD;
+[xUnit.net 00:00:00.72]   Discovering: PBJProject.Testing&#xD;
+[xUnit.net 00:00:00.78]   Discovered:  PBJProject.Testing&#xD;
+[xUnit.net 00:00:00.78]   Starting:    PBJProject.Testing&#xD;
+[xUnit.net 00:00:00.93]   Finished:    PBJProject.Testing&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

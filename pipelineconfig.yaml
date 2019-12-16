@@ -17,7 +17,7 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: dotnet test PBJProject.sln --logger trx --collect:"XPlat Code Coverage"
+          - script: dotnet test ./PBJProject.sln --logger trx --collect:"XPlat Code Coverage"
           - task: PublishCodeCoverageResults@1
             inputs:
               codeCoverageTool: cobertura
