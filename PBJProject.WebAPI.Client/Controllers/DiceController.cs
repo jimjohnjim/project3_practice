@@ -10,6 +10,8 @@ namespace PBJProject.WebAPI.Client.Controllers
   [ApiController]
   public class DiceController : ControllerBase
   {
+     private static readonly DiceRepository _diceRepository = new DiceRepository();
+
     private ILogger _logger;
     private ChatParser parser = new ChatParser();
 
@@ -24,7 +26,12 @@ namespace PBJProject.WebAPI.Client.Controllers
     {
       var list = parser.GetRoll(nds);
       Dice dice = new Dice(list[0], list[1]);
+      DiceEntity 
       dice.Roll();
+
+
+
+      _dr.Create(dice);
       return await Task.FromResult(Ok(dice.Values));
     }
 

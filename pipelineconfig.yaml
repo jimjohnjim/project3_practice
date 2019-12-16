@@ -10,14 +10,14 @@ stages:
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: dotnet build PBJProject.sln
+          - script: dotnet build PBJProject.WebApi.Client/PBJProject.WebApi.Client.csproj
   - stage: test
     jobs:
       - job: aspnet_test
         pool:
           vmImage: ubuntu-18.04
         steps:
-          - script: dotnet test ./PBJProject.sln --logger trx --collect:"XPlat Code Coverage"
+          - script: dotnet test ./PBJProject.WebApi.Client/PBJProject.WebApi.Client.csproj --logger trx --collect:"XPlat Code Coverage"
           - task: PublishCodeCoverageResults@1
             inputs:
               codeCoverageTool: cobertura
@@ -43,8 +43,8 @@ stages:
               /d:sonar.cs.opencover.reportsPaths=**/PBJProject.Testing/coverage.opencover.xml \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
               /o:benjaminclegg
-              dotnet build ./PBJProject.sln
-              dotnet test ./PBJProject.sln --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+              dotnet build ./PBJProject.WebApi.Client/PBJProject.WebApi.Client.csproj
+              dotnet test ./PBJProject.WebApi.Client/PBJProject.WebApi.Client.csproj --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
               dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
             env:
               SONAR_TOKEN: $(sonar.token)
