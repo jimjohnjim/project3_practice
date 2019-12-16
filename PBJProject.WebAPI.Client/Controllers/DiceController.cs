@@ -25,7 +25,7 @@ namespace PBJProject.WebAPI.Client.Controllers
       var list = parser.GetRoll(nds);
       Dice dice = new Dice(list[0], list[1]);
       dice.Roll();
-      return await Task.FromResult(Ok(dice.Values));
+      return await Task.FromResult(Ok(dice));
     }
 
    //  [HttpPost]
