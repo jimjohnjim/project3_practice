@@ -21,7 +21,7 @@ namespace PBJProject.Client.Controllers
        if(ModelState.IsValid)
        {
           AccountModel actualAccount = new AccountModel();
-          actualAccount = _ar.GetAccountObjectbyUserName(account.UserName);
+  //        actualAccount = _ar.GetAccountObjectbyUserName(account.UserName);
           HttpContext.Session.SetString("name", account.UserName);
           return RedirectToAction("Index","Dashboard", account);
        }
