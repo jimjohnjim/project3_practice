@@ -9,7 +9,6 @@ connection.start().then(function () {
 window.onload = function() {
   var fileInput = document.getElementById('fileInput');
   var fileDisplayArea = document.getElementById('fileDisplayArea');
-  console.log("got to here")
 
   fileInput.addEventListener('change', function(e) {
     var file = fileInput.files[0];
