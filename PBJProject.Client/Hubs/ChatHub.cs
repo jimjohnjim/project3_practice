@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.SignalR;
 using PBJProject.Client.Models;
+using PBJProject.Domain.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
@@ -15,7 +16,16 @@ namespace PBJProject.Client.Hubs
     public async Task SendMessage(string user, string message)
     {
       var caller = Users[Context.ConnectionId];
-      await Clients.Group(caller.group).SendAsync("ReceiveMessage", caller.name, message);
+      if(message[0] == '/' && message[1] == 'r')
+      {
+        var roll = new ChatParser().GetRoll(message);
+        var dice = new Dice(roll[0],roll[1]);
+        dice.Roll();
+        await Clients.Group(caller.group).SendAsync("DiceRoll",caller.name,dice.Values,dice.Sum,dice.Highest);
+      }
+      else{
+        await Clients.Group(caller.group).SendAsync("ReceiveMessage", caller.name, message);
+      }
     }
 
     public async Task JoinRoom(string userName, string roomName)

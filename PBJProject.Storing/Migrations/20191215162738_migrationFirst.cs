@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace PBJProject.Storing.Migrations
 {
-    public partial class nmigration : Migration
+    public partial class migrationFirst : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,25 +11,24 @@ namespace PBJProject.Storing.Migrations
                 name: "Account",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    AccountId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     UserName = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Path = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Account", x => x.ID);
+                    table.PrimaryKey("PK_Account", x => x.AccountId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Character",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    CharacterId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Level = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
@@ -41,40 +40,44 @@ namespace PBJProject.Storing.Migrations
                     Charisma = table.Column<int>(nullable: false),
                     Constitution = table.Column<int>(nullable: false),
                     CharacterClass = table.Column<string>(nullable: true),
-                    FileName = table.Column<string>(nullable: true),
-                    AccountID = table.Column<int>(nullable: true)
+                    AccountId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Character", x => x.ID);
+                    table.PrimaryKey("PK_Character", x => x.CharacterId);
                     table.ForeignKey(
-                        name: "FK_Character_Account_AccountID",
-                        column: x => x.AccountID,
+                        name: "FK_Character_Account_AccountId",
+                        column: x => x.AccountId,
                         principalTable: "Account",
-                        principalColumn: "ID",
+                        principalColumn: "AccountId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
                 table: "Account",
-                columns: new[] { "ID", "Email", "FirstName", "LastName", "Password", "Path", "UserName" },
+                columns: new[] { "AccountId", "Email", "FirstName", "LastName", "Password", "UserName" },
                 values: new object[,]
                 {
-                    { 1, "joshua@familiar.com", "Joshua", "Guillory", "revature7", null, "jguillo" },
-                    { 2, "phillip@familiar.com", "Phillip", "Krawetz", "revature8", null, "phillip" },
-                    { 3, "benjamin@familiar.com", "Benjamin", "Clegg", "revature9", null, "sven" },
-                    { 4, "phillip@familiar.com", "Phillip", "Krawetz", "revature8", null, "lisa" }
+                    { 1, "joshua@familiar.com", "Joshua", "Guillory", "revature7", "jguillo" },
+                    { 2, "phillip@familiar.com", "Phillip", "Krawetz", "revature8", "phillip" },
+                    { 3, "benjamin@familiar.com", "Benjamin", "Clegg", "revature9", "sven" },
+                    { 4, "phillip@familiar.com", "Phillip", "Krawetz", "revature8", "lisa" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Character",
-                columns: new[] { "ID", "AccountID", "CharacterClass", "Charisma", "Constitution", "Dexterity", "FileName", "Intelligence", "Level", "Name", "Race", "Strength", "Wisdom" },
-                values: new object[] { 1, null, "Fighter", 10, 16, 12, null, 8, 1, "Dummy", "Human", 18, 10 });
+                columns: new[] { "CharacterId", "AccountId", "CharacterClass", "Charisma", "Constitution", "Dexterity", "Intelligence", "Level", "Name", "Race", "Strength", "Wisdom" },
+                values: new object[,]
+                {
+                    { 1, 3, "Fighter", 10, 16, 12, 8, 1, "Dummy", "Human", 18, 10 },
+                    { 2, 2, "Rogue", 10, 10, 10, 10, 1, "Silly", "Human", 10, 10 },
+                    { 3, 2, "Bard", 10, 10, 10, 10, 1, "Testing", "Human", 10, 10 }
+                });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Character_AccountID",
+                name: "IX_Character_AccountId",
                 table: "Character",
-                column: "AccountID");
+                column: "AccountId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
