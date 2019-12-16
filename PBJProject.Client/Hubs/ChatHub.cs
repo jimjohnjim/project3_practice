@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.SignalR;
 using PBJProject.Client.Models;
 using PBJProject.Domain.Models;
+using PBJProject.Storing.Repositories;
 using System;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
@@ -33,10 +34,7 @@ namespace PBJProject.Client.Hubs
       string cId = Context.ConnectionId;
       Users.GetOrAdd(cId, new User(){name = userName, group = roomName});
       numUsers.AddOrUpdate(roomName,1,(key, oldValue) => oldValue + 1);
-      foreach(var item in Users)
-      {
-        System.Console.WriteLine(item.Value.name + " " + item.Key + " " + item.Value.group + " " + numUsers[roomName]);
-      }
+
       
       await Groups.AddToGroupAsync(Context.ConnectionId, roomName);
       await Clients.Group(roomName).SendAsync("UserJoined",userName,numUsers[roomName]);
@@ -46,9 +44,31 @@ namespace PBJProject.Client.Hubs
     {
       var caller = Users[Context.ConnectionId];
       numUsers.AddOrUpdate(caller.group,1,(key, oldValue) => oldValue - 1);
+      await Groups.RemoveFromGroupAsync(Context.ConnectionId,caller.group);
       await Clients.Group(caller.group).SendAsync("UserLeft",caller.name,numUsers[caller.group]);
       Users.TryRemove(Context.ConnectionId, out caller);
     }
 
+    public Task LoadFile(string filecontents)
+    {
+      var repo = new CharacterRepository();
+      repo.Load(filecontents);
+      return null;
+    }
+
+    public async Task SwitchRoom()
+    {
+      if(Users.Keys.Contains(Context.ConnectionId))
+      {
+        var caller = Users[Context.ConnectionId];
+        await Groups.RemoveFromGroupAsync(Context.ConnectionId,caller.group);
+        numUsers.AddOrUpdate(caller.group,1,(key, oldValue) => oldValue - 1);
+
+        await Clients.Group(caller.group).SendAsync("UserLeft",caller.name,numUsers[caller.group]);
+        Users.TryRemove(Context.ConnectionId, out caller);
+
+      }
+
+    }
   }
 }
