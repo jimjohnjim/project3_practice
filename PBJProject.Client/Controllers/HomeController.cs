@@ -18,9 +18,16 @@ namespace PBJProject.Client.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+
+        
+         public IActionResult Home()
+        {
+            return View("Index");
         }
 
         public IActionResult Privacy()

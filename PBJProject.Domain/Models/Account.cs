@@ -16,5 +16,7 @@ namespace PBJProject.Domain.Models
     public List<Character> MyCharacters { get; set; }
 
     public virtual ICollection<Character> Characters { get; set; }
+
+  
   }
 }

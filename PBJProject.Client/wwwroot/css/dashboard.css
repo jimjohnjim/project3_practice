@@ -1,65 +1,104 @@
-.footerdash{
-display: flex;
-justify-content:center;
-font-size: 1.5em;
+body{
+  margin-bottom: none;
+  height:100%
 }
-
-.footerdash .nav-item{
-  border-style: solid;
-  border-color: dimgrey;
-  border-radius: 100%;
-  margin-right: 6px;
-  margin-left: 6px;
-
-}
-
-.footer-chatbar{
-  display: inline-block;
+.dashnav{
   position: fixed;
-  top: 525px;
+}
+
+.footer-content{
+  margin-top: 100px;
+}
+
+.chatbox{
+  scrollbar-width: none;
+}
+.chatbar{
+  position: fixed;
+  width:300px;
+  top: 550px;
+  font-size: 18px;
   z-index: 10;
 }
+.main-content{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 95px;
+  height: 2500px;
+}
 
+.dashcontent{
+  margin-top: 15;
+}
 .dashnav{
   position: fixed;
   width:100%;
   top: 0;
   z-index: 10;
 }
-.chatlog{
-  border-left-color: darkslategray;
-  border-left-style: solid;
-  border-left-width: medium;
-  height: 100vh;
-}
-.chatbar{
-  width: 650px;
-
+.sidebar-right-style{
+  border-left-width: 2px;
+  border-left: #E8E8E8;
+  border-style: ridge; 
 }
 
-.wrapper {
-  display: flex;
-  width: 100%;
-  align-items: stretch;
-
-}
-
-
-#sidebar.active {
-  margin-left: -250px;
-}
-
-#sidebar {
+.sidebar-right{
   position: fixed;
-  min-width: 250px;
-  max-width: 250px;
-  height: 100vh;
-  overflow-y: hidden;
+  right:auto;
+  margin: auto;
+  width: 325px;
+  height: 100%;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-a[data-toggle="collapse"] {
-  position: relative;
+/* .chatlog{
+  background-color: rebeccapurple;
+  position: fixed;
+  right:auto;
+  bottom: 140.067px;
+  height: 100%;
+  margin: auto;
+  width: 325px;
+  overflow-y: auto;
+  scrollbar-width: none;
+} */
+.sidebar-right::-webkit-scrollbar {
+  display: none;
 }
+.sidebar-left-style{
+  background-color: royalblue;
+  padding-top: 40px;
+
+}
+.fa-dragon{
+  color:red;
+}
+.sidebar-left{
+  position: fixed;
+  margin: auto;
+  left:0;
+  right: 1161.8px;
+  width: 220px;
+  height: 100%;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar-left::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+
+/* a[data-toggle="collapse"] {
+  position: relative;
+} */
 
 .dropdown-toggle::after {
   display: block;
@@ -69,19 +108,10 @@ a[data-toggle="collapse"] {
   transform: translateY(-50%);
 }
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}
-
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
-    line-height: 1.7em;
     color: #999;
 }
 
@@ -93,14 +123,12 @@ a, a:hover, a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    background: #7386D5;
     color: #fff;
     transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
 }
 
 #sidebar ul.components {
@@ -123,25 +151,5 @@ a, a:hover, a:focus {
     background: #fff;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
-}
-#content.active {
-  width: 100%;
-}
 
-#content {
-  width: calc(100% - 250px);
-  padding: 40px;
-  min-height: 100vh;
-  transition: all 0.3s;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+

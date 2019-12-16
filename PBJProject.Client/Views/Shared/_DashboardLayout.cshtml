@@ -10,99 +10,54 @@
     <link rel="stylesheet" href="~/css/dashboard.css" />
 </head>
 <body>
-    <div class="wrapper">
-    <!-- Sidebar Navbar -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Familiar Sidebar</h3>
-        </div>
-
-        <ul class="list-unstyled components">
-            <p>Your Profile</p>
-            <li class="active">
-                 <ul class="nav" style="font-size:1.5em; justify-content: space-evenly;">
-                      <li class="nav-item">
-                         <a class="nav-link" href="#">
-                               <i class="far fa-comment-alt fa-fw"></i>
-                        </a>
-                    </li>
-                     <li class="nav-item">
-                         <a class="nav-link" asp-controller="Character" asp-action="Index">
-                                <i class="far fa-address-book fa-fw"></i> 
-                        </a>
-                    </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">
-                                <i class="fas fa-cog fa-fw"></i> 
-                        </a>
-                    </li>
-                </ul> 
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                   @foreach(var c in ViewBag.Characters)
-                   {
-                     <li><a href="#">@c.Name</a></li>
-                   }
-                 </ul>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                      <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
-    </nav>
+    
+        @Html.Partial("_DashBoardNavBar");
 
     <!-- Page Content -->
-    <main id="content">
-        @Html.Partial("_DashboardNavBar")
-        <section class="row">
-        <article class="col-md-9">
-             @RenderBody()
-        
-        </article>
-        <article class="col-md-3 chatlog">
+    <main class="container-fluid">
+        <article class="row"> 
+            <section class="col-md-2 sidebar-left-style">
+                <div class="sidebar-left">
+                    <!-- Sidebar Navbar -->
+                    @Html.Partial("_DashBoardSideBar");
+            </section>
+            <section class="col-md-7">
+                <div class="main-content">
+                    @RenderBody()
+                      @using (Html.BeginForm("index","room")){
+                        <input type="submit" name="room" value="RoomB">
+                        <input type="submit" name="room" value="RoomA">
+                    }
+                    <div id="page-wrapper">
+                        <div>
+                        Select a JSON file: 
+                        <input type="file" id="fileInput">
+                        </div>
+                        <pre id="fileDisplayArea"><pre>
+                    </div>
+                </div>
+            </section>
+            <section class="col-md-3 sidebar-right-style"> 
+                <div class="sidebar-right">
+                   
 
-        </article>
-        </section>
-        <footer class="footer-chatbar">
-            
-            <div class="input-group chatbar">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">With textarea</span>
-            </div>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
-
-            <ul class="nav footerdash">
-                      <li class="nav-item">
-                         <a class="nav-link">
-                              <i class="far fa-paper-plane fa-fw"></i>
-                        </a>
-                    </li>
-                     <li class="nav-item">
-                         <a class="nav-link">
-                                <i class="fas fa-dice fa-fw"></i>
-                        </a>
-                    </li>
-                      <li class="nav-item">
-                          <a class="nav-link">
-                                <i class="far fa-clone fa-fw"></i>
-                        </a>
-                    </li>
-                </ul> 
-            </div>
-        </footer>
+                     <footer class="border-top">
+                        
+                        <div class="input-group chatbar">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">With textarea</span>
+                        </div>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+                        </div>
+                        </div>
+                    </footer>
+                </div>
+            </section>
+        </article>     
     </main>
-</div>
+
 
 
 
@@ -113,6 +68,8 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/sidebar.js" asp-append-version="true"></script>
     <script src="~/js/dashboard.js"></script>
+    <script src="~/js/filereader.js"></script>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
