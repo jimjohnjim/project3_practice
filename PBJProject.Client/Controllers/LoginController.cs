@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PBJProject.Client.Models;
-using PBJProject.Domain.Models;
-using PBJProject.Storing.Repositories;
+
 
 namespace PBJProject.Client.Controllers
 {
   public class LoginController : Controller
   {
-     private static AccountRepository _ar = new AccountRepository();
+     //private static AccountRepository _ar = new AccountRepository();
 
     [HttpGet]
     public IActionResult Index()
@@ -19,26 +18,27 @@ namespace PBJProject.Client.Controllers
 	[HttpPost]
     public IActionResult Index(Login account)
     {
-       if(ModelState.IsValid)
+       //if(ModelState.IsValid)
        {
-          Account actualAccount = new Account();
+          //Account actualAccount = new Account();
           AccountModel accountModel = new AccountModel();
-          actualAccount = _ar.GetAccountObjectbyUserName(account.UserName);
+          // actualAccount = _ar.GetAccountObjectbyUserName(account.UserName);
 
-          accountModel.AccountId = actualAccount.AccountId;
-          accountModel.Email = actualAccount.Email;
-          accountModel.FirstName = actualAccount.FirstName;
-          accountModel.LastName = actualAccount.LastName;
-          accountModel.Password = actualAccount.Password;
-          accountModel.UserName = actualAccount.UserName;
+          // accountModel.AccountId = actualAccount.AccountId;
+          // accountModel.Email = actualAccount.Email;
+          // accountModel.FirstName = actualAccount.FirstName;
+          // accountModel.LastName = actualAccount.LastName;
+          // accountModel.Password = actualAccount.Password;
+          // accountModel.UserName = actualAccount.UserName;
 
           HttpContext.Session.SetString("name", account.UserName);
           return RedirectToAction("Index","Dashboard", accountModel);
        }
 
-      ViewBag.LoginError = "Invalid Username and\\or Password";
-      ViewBag.FirstNameError = "Enter a valid name";
-      return View("~/Views/Home/Index.cshtml", account);
+      // ViewBag.LoginError = "Invalid Username and\\or Password";
+      // ViewBag.FirstNameError = "Enter a valid name";
+      // return View("~/Views/Home/Index.cshtml", account);
+      
     }
 
 

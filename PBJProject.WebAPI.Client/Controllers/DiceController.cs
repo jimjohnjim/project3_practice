@@ -28,7 +28,6 @@ namespace PBJProject.WebAPI.Client.Controllers
       Dice dice = new Dice(list[0], list[1]);
 
       dice.Roll();
-      //_dr.Create(dice);
       return await Task.FromResult(Ok(dice));
     }
 

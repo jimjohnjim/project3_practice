@@ -1,0 +1,10 @@
+FROM mcr.microsoft.com/dotnet/core/sdk as build
+WORKDIR /aspnet
+COPY /PBJProject.Client /PBJProject.Client
+RUN dotnet build /PBJProject.Client/PBJProject.Client.csproj
+RUN dotnet publish /PBJProject.Client/PBJProject.Client.csproj --no-restore -c Release -o out 
+
+FROM mcr.microsoft.com/dotnet/core/aspnet
+WORKDIR /dist
+COPY --from=build /aspnet/out .
+CMD [ "dotnet", "PBJProject.Client.dll" ]
