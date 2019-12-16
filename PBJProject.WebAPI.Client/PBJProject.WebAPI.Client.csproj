@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
    <ItemGroup>
+     <ProjectReference Include="..\PBJProject.Domain\PBJProject.Domain.csproj" />
    </ItemGroup>
 
    <ItemGroup>
