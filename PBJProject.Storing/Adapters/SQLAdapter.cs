@@ -19,6 +19,11 @@ namespace PBJProject.Storing.Adapters
          return _db.Character.ToList();
       }
 
+      public List<Account> GetAccounts()
+      {
+         return _db.Account.ToList();
+      }
+
       public List<Character> GetCharactersByAccountId(int accountId)
       {
          return _db.Character.Where(x => x.AccountId == accountId).ToList();
