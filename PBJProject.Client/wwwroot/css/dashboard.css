@@ -10,6 +10,9 @@ body{
   margin-top: 100px;
 }
 
+.chatbox{
+  scrollbar-width: none;
+}
 .chatbar{
   position: fixed;
   width:300px;
@@ -50,6 +53,18 @@ body{
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* .chatlog{
+  background-color: rebeccapurple;
+  position: fixed;
+  right:auto;
+  bottom: 140.067px;
+  height: 100%;
+  margin: auto;
+  width: 325px;
+  overflow-y: auto;
+  scrollbar-width: none;
+} */
 .sidebar-right::-webkit-scrollbar {
   display: none;
 }
@@ -58,7 +73,9 @@ body{
   padding-top: 40px;
 
 }
-
+.fa-dragon{
+  color:red;
+}
 .sidebar-left{
   position: fixed;
   margin: auto;

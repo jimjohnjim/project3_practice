@@ -8,6 +8,15 @@ namespace PBJProject.Client.Controllers
     {
         return View("Character");
     }
+      public IActionResult ViewCharacter()
+    {
+        return View("_ViewCharacter");
+    }
 
+     public IActionResult NewCharacter()
+    {
+      
+        return View("_NewCharacter");
+    }
   }
 }

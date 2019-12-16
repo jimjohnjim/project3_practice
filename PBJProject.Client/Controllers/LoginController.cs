@@ -24,5 +24,12 @@ namespace PBJProject.Client.Controllers
       return View("index", user);
     }
 
+     
+      public IActionResult Logout()
+    {
+      HttpContext.Session.SetString("name",null);
+
+      return Redirect("/");
+    }
   }
 }

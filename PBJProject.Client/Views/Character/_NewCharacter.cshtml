@@ -1,7 +1,12 @@
 @model PBJProject.Domain.Models.Character
 
-<div class="col-md-6 text-center">
-     <h1 class="display-4">View Character</h1>
+@{
+    ViewData["Title"] = "Familiar Character Page";
+    Layout="~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-md-6">
+     <h1 class="display-4">Create A Character</h1>
 </div>
 
  @using (Html.BeginForm("index","login"))

@@ -14,5 +14,7 @@ namespace PBJProject.Domain.Models
     public string Path { get; set; }
 
     public virtual ICollection<Character> Characters { get; set; }
+
+  
   }
 }
