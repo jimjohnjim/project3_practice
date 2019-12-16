@@ -26,13 +26,10 @@ namespace PBJProject.WebAPI.Client.Controllers
     {
       var list = parser.GetRoll(nds);
       Dice dice = new Dice(list[0], list[1]);
-      DiceEntity 
+
       dice.Roll();
-
-
-
-      _dr.Create(dice);
-      return await Task.FromResult(Ok(dice.Values));
+      //_dr.Create(dice);
+      return await Task.FromResult(Ok(dice));
     }
 
    //  [HttpPost]
