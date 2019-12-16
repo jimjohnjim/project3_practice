@@ -86,11 +86,6 @@
             <section class="col-md-7">
                 <div class="main-content">
                     @RenderBody()
-    
-                   <div style="display:flex;"> 
-                       <p>Container 1</p>
-                       <p>Container 2</p>
-                       <p>Container 3</p>
                    </div>
                 </div>
             </section>
@@ -103,10 +98,11 @@
                      <footer class="border-top">
                         
                         <div class="input-group chatbar">
-                        
                         <input type="text" id="messageInput"/>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+                         <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="btnRoll">
+                                <i class="fas fa-dice"></i>
+                            </button>
                         </div>
                         </div>
                     </footer>
@@ -116,8 +112,6 @@
     </main>
 
 
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
@@ -125,8 +119,6 @@
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/chat.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/sidebar.js" asp-append-version="true"></script>
-    
     @RenderSection("Scripts", required: false)
 </body>
 </html>

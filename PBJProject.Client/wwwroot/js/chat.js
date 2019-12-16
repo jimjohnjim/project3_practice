@@ -21,6 +21,7 @@ document.getElementsByName("room").forEach(item => {
 })
 
 
+
 connection.on("ReceiveMessage", function (user, message) {
     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     var encodedMsg = user + ": " + msg;
@@ -32,13 +33,26 @@ connection.on("ReceiveMessage", function (user, message) {
 document.getElementById("messageInput").addEventListener("keyup", function (event) {
   if(event.keyCode === 13){
     var user = sessionStorage.getItem('name');
-    var message = document.getElementById("messageInput").value;
+    var message = document.getElementById("messageInput").value; 
     connection.invoke("SendMessage", user, message).catch( function (err) {
       return console.error(err.toString());
   });
   }
   event.preventDefault();
 });
+
+document.getElementById("btnRoll").addEventListener("click", function (event) {
+    var user = sessionStorage.getItem('name');
+    var diceRollMessage ="/r 2d20";
+    console.log("Dice roll 20");
+    connection.invoke("SendMessage", user, diceRollMessage).catch( function (err) {
+      return console.error(err.toString());
+  });
+  event.preventDefault();
+});
+
+
+
 
 connection.on("DiceRoll", function(user,dice,sum,highest) {
   var message = user + " rolled";
@@ -67,6 +81,8 @@ connection.on("DiceRoll", function(user,dice,sum,highest) {
   
 })
 
+
+  
 connection.on("UserJoined", function (user, users) {
   var message = user + " has joined the party!";
   var encodedMsg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
