@@ -12,6 +12,7 @@ connection.start().then(function() {
 document.getElementsByName("room").forEach(item => {
   item.addEventListener("click",function(){
     sessionStorage.setItem('room',item.value)
+    connection.invoke("SwitchRoom").catch(err => console.error(err))
     connection.invoke("JoinRoom",sessionStorage.getItem("name"), sessionStorage.getItem("room")).catch(err => 
       console.error(err))
     });
@@ -27,21 +28,6 @@ connection.on("ReceiveMessage", function (user, message) {
     li.textContent = encodedMsg;
     document.getElementById("messagesList").appendChild(li);
 });
-
-// connection.start().then(function () {
-//     document.getElementById("sendButton").disabled = false;
-// }).catch(function (err) {
-//     return console.error(err.toString());
-// });
-
-// document.getElementById("sendButton").addEventListener("click", function (event) {
-//     var user = sessionStorage.getItem('name');
-//     var message = document.getElementById("messageInput").value;
-//     connection.invoke("SendMessage", user, message).catch(function (err) {
-//         return console.error(err.toString());
-//     });
-//     event.preventDefault();
-// });
 
 document.getElementById("messageInput").addEventListener("keyup", function (event) {
   if(event.keyCode === 13){
