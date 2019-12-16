@@ -36,7 +36,7 @@
               </button>
             </div>
             
-               @using (Html.BeginForm("index","signup"))
+               @using (Html.BeginForm("signup","login"))
               {
                 <div class="modal-body">
                   <div class="form-group">
@@ -61,7 +61,7 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <input type="submit" value="Create New Account" class="btn btn-lg btn-primary btn-block">
+                  <input type="submit" value="Create New Account" id="signup" class="btn btn-lg btn-primary btn-block">
                 </div>
               }
           </div>
